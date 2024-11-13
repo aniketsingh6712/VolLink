@@ -33,7 +33,6 @@ jobs:
         with:
           name: build-folder
           path: build/
-name: Deploy to Firebase
-run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+
 
 
