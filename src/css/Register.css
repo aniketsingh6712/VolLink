@@ -2,20 +2,23 @@
 *{
     font-family: Franklin Gothic Book;
 }
-.form{
-    width:50%;
-    margin:50px 30px;
+.userform{
+    width:40vw;
+    margin:5vh 5vw;
     border:1px solid black;
     border-radius:12px;
+    padding: 2vh 2vw;
 }
 .header{
     text-align: left;
-    margin:30px;
+    margin:5rem;
 }
 .mainfr{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 10vw;
     margin-top: 3%;
 }
 .mb-3 input{
@@ -29,12 +32,12 @@
     .img{
         display: none;
     }
-    .form{
+    .userform{
         width: 100%;
-        margin:30% 10px;
+        margin:5vh 10px;
         font-size: 14px;
     }
-    .form h1,h2,h3,h4,div,p,input{
+    .userform h1,h2,h3,h4,div,p,input{
         font-size: 12px;
     }
 

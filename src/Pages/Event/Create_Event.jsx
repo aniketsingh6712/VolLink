@@ -1,15 +1,15 @@
+//event creating form
 import React, { useState ,useEffect} from "react";
-
-import "../css/Events.css";
-import { storage } from "../firebase/firebase-config";
+import "../../css/Events.css";
+import { storage } from "../../firebase/firebase-config";
 import { getDownloadURL, ref,uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { addDoc,collection } from "firebase/firestore";
-import { db } from "../firebase/firebase-config";
+import { db } from "../../firebase/firebase-config";
 import { useSelector } from "react-redux";
 import { IoIosOptions } from "react-icons/io";
-function Events() {
+function Create_Event() {
   const User=useSelector((state)=>state.user);
     const nav=useNavigate();
    
@@ -34,19 +34,26 @@ function Events() {
   const currentDate = new Date();
   const curr_time=currentDate.toISOString();
   const [image,SetImage]=useState(null);
-
-  const UploadImage=()=>{
-    if(image==null) return;
-    const imageref=ref(storage,`events/${image.name+v4()}`);
-    uploadBytes(imageref,image).then((snaphsot)=>{
-        getDownloadURL(snaphsot.ref).then((url)=>{
-            alert("Image is uploaded");
-            setData((prev)=>({...prev,image_url:url}));
-        });
-
-    });
-
-  };
+  
+  //for image upload
+  useEffect(()=>{
+    if(!image) return;
+    const UploadImage=async ()=>{
+      const imageref=ref(storage,`events/${image.name+v4()}`);
+      try{
+        const snapshot=await uploadBytes(imageref,image);
+        const url = await getDownloadURL(snapshot.ref);
+        alert("Image uploaded successfully");
+        setData((prev) => ({ ...prev, url }));
+      }
+      catch(err){
+        console.error("Error uploading image:", err);
+      }
+    
+  
+    };
+    UploadImage();
+  },[image,storage])
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -200,7 +207,6 @@ function Events() {
             }}
             required
           />
-          <button onClick={UploadImage} style={{backgroundColor:"Black",fontWeight:"500",color:"white"}}>Upload</button>
         </div>
 
         <button
@@ -222,4 +228,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default Create_Event;

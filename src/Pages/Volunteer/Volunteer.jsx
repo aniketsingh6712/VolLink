@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-
-import { getDocs, collection,addDoc } from "firebase/firestore";
+import { getDocs, collection} from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
 import "../../css/card.css";
 import { deleteDoc,doc } from "firebase/firestore";
 import { useSelector } from "react-redux";
-import NavBar from "../NavBar";
-
-
+import NavBar from "../../components/NavBar";
+import Spinner from 'react-bootstrap/Spinner';
+import { MdDelete } from "react-icons/md";
 function Volunteer() {
     const User=useSelector((state)=>state.user);
     const eventcollectionsRef = collection(db, "events");
@@ -16,6 +15,8 @@ function Volunteer() {
   
   const [EventData,setEventData]=useState([]);
   const [volData,setVolData]=useState([]);
+  const [loading,setLoading]=useState(true);
+
   const getData = async () => {
     
     const voldata=await getDocs(VolunteercollectionsRef);
@@ -29,11 +30,12 @@ function Volunteer() {
     let filterData = dataDb.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
    setEventData(filterData);
    
-   
+   setLoading(false);
     
   };
   useEffect(() => {
     getData();
+    
   }, []);
 
   
@@ -49,18 +51,21 @@ function Volunteer() {
     width: '100%',
     margin: '16px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    maxHeight:"fit-content"
+    
   },
   section: {
     marginBottom: '16px',
     display:"flex",
     flexDirection:"row",
+   
     
 
   },
  
   image: {
-    width: '60%',
-    height: '150px',
+    maxWidth: '30%',
+    maxHeight: 'auto',
     objectFit: 'cover',
     borderRadius: '8px',
   },
@@ -78,6 +83,8 @@ function Volunteer() {
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
+    width:"50%",
+    margin:'0 auto'
   }
 };
  const EventCard=()=>{
@@ -92,31 +99,32 @@ function Volunteer() {
       {/* Event Details */}
       <h3>Event details</h3>
       <div style={styles.section}>
-        <img src={event.Image_url} alt={event.EventName} style={styles.image} />
-        <div style={{display:"flex",flexDirection:"column",marginLeft:"2%"}}>
-        <h2>{event.EventName}</h2>
-        <p>{event.Desc}</p>
-        <p><strong>From:</strong> {event.From_Date}</p>
-        <p><strong>To:</strong> {event.to_Date}</p>
+        <img src={event.Image_url} alt={event.EventName} style={styles.image} className="border"/>
+        <div style={{display:"flex",flexDirection:"column",marginLeft:"2vw",lineHeight:"2vh"}}>
+        <h2><span className="text-secondary fw-bold">Event Name: </span>{event.EventName.toUpperCase()}</h2>
+        <p style={{height:"fit-content",width:"fit-content"}}><span className="text-secondary fw-bold">Description: </span>{event.Desc}</p>
+        <p><span className="text-secondary fw-bold">From:</span> {event.From_Date}</p>
+        <p><span className="text-secondary fw-bold">To:</span> {event.to_Date}</p>
         </div>
       </div>
 
       {/* User Details */}
       <h4>Your details</h4>
       <div style={styles.section} >
-        <img src={volunteer.Vol_Photo} alt={volunteer.username} style={styles.userImage} />
-        <div style={{display:"flex",flexDirection:"column",marginLeft:"10%"}}>
+        <img src={volunteer.Vol_Photo} alt={volunteer.username} style={styles.userImage} className="border"/>
+        <div style={{display:"flex",flexDirection:"column",marginLeft:"10%",lineHeight:"1vh"}}>
         <h3>{volunteer.username}</h3>
         <p>{volunteer.email}</p>
         <p>{volunteer.Phone}</p>
         <p>{volunteer.Desc}</p>
-        <h4>Status:<span style={{backgroundColor:"#6CF0E4",color:"white",padding:"3px 5px",borderRadius:"3px"}}>{volunteer.status}</span></h4>
+        <h4>Status:<span style={{backgroundColor:`${volunteer.status==="Approved"?"#14A131":"#0094D4"}`,color:"white",padding:"3px 5px",borderRadius:"3px",marginLeft:"1vw"}}>{volunteer.status}</span></h4>
         </div>
         
       </div>
 
       {/* Delete Button */}
       <button style={styles.button} onClick={(e)=>onDelete(volunteer.id)}>
+      <MdDelete />
         Delete
       </button>
     </div>
@@ -146,11 +154,21 @@ function Volunteer() {
       </div>
   )
 }
+//spinner
+if(loading){
+  return(
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+    <Spinner animation="border" role="status" variant="primary">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  </div>
+  )
+}
         
    return (
     <>
     <NavBar/>
-    <h1 className="text-center text-primary text-decoration-underline mt-3">Your Volunteer work</h1>
+    <h1 className="text-center text-primary  mt-2 fw-bold " style={{fontFamily:"Bebas Neue"}}>Events You Have Applied</h1>
    <div style={{ margin: "3% 30%", fontFamily: "Franklin Gothic Heavy" }}>
    {volData.length>0?<EventCard />:<NotShow/>}
    
