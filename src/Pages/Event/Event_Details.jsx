@@ -103,7 +103,7 @@ function Events_Details() {
     const EventCard = () => {
         return (
             <>
-           <h1 className="text-center text-primary  fw-bold " style={{fontFamily:"Bebas Neue"}}>Events You Have Applied</h1>
+           <h1 className="text-center text-primary  fw-bold " style={{fontFamily:"Bebas Neue"}}>Events You Have Created</h1>
                 {EventData.map((event) => {
                     return (
 
