@@ -44,7 +44,7 @@ function Create_Event() {
         const snapshot=await uploadBytes(imageref,image);
         const url = await getDownloadURL(snapshot.ref);
         alert("Image uploaded successfully");
-        setData((prev) => ({ ...prev, url }));
+        setData((prev) => ({ ...prev,image_url: url }));
       }
       catch(err){
         console.error("Error uploading image:", err);
