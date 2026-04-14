@@ -25,16 +25,20 @@ export default function Features() {
   ];
 
   return (
-    <section className="px-6 md:px-16 py-20 text-center bg-white">
+    <section className="py-20 md:py-32 text-center bg-white">
 
+    <div className="container mx-auto px-4">
       {/* Heading */}
-      <h2 className="text-3xl font-bold text-[#0F172A]">
+      <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">
         Why Choose VOL-LINK?
       </h2>
+      
 
-      <p className="mt-3 text-gray-500 text-lg">
+      <p className="text-xl text-gray-600 ">
         The easiest way to volunteer and make an impact
       </p>
+      </div>
 
       {/* Cards */}
       <div className="mt-12 grid md:grid-cols-4 gap-6">
@@ -55,7 +59,7 @@ export default function Features() {
           </div>
         ))}
       </div>
-
+</div>
     </section>
   );
 }

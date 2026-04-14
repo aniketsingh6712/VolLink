@@ -12,11 +12,11 @@ export default function CTASection() {
       </p>
 
       <div className="mt-8 flex justify-center gap-4 flex-wrap">
-        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium">
+        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium font-semibold hover:bg-blue-100 transition duration-300 cursor-pointer">
           Start Volunteering
         </button>
 
-        <button className="border border-white px-6 py-3 rounded-lg font-medium">
+        <button className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 cursor-pointer">
           Create Event
         </button>
       </div>

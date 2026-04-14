@@ -1,12 +1,12 @@
 // components/HeroSection.jsx
-
+import { LuHeart } from "react-icons/lu";
 export default function HeroSection() {
   return (
-    <section className="px-6 md:px-16 py-20 grid md:grid-cols-2 gap-10 items-center bg-[#EEF2F7]">
+    <section className="px-6 md:px-16 py-20 grid md:grid-cols-2 gap-8 items-center  md:h-screen bg-gradient-to-br from-blue-50 to-blue-100 sm:py-12 sm:h-auto">
 
       {/* LEFT CONTENT */}
       <div>
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           Volunteer for Impact
         </h1>
 
@@ -28,13 +28,16 @@ export default function HeroSection() {
       </div>
 
       {/* RIGHT CARD */}
-      <div className="flex justify-center">
-        <div className="w-full max-w-sm h-[320px] rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex flex-col items-center justify-center text-white shadow-xl">
-          <div className="text-5xl mb-4">🤍</div>
-          <p className="text-xl font-semibold">Make a Difference</p>
+      <div className="hidden md:flex justify-center">
+        <div className="w-full max-w-md aspect-square bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-xl">
+          <div className="text-center text-white flex flex-col items-center">
+            <LuHeart className="text-6xl mb-4 animate-pulse" />
+<p className="text-2xl font-bold ">Make a Difference</p>
+          </div>
+          
         </div>
       </div>
-
+    
     </section>
   );
 }
