@@ -6,7 +6,15 @@ import { MdOutlineCalendarToday } from "react-icons/md";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { GoClock } from "react-icons/go";
+
+import { useState } from "react";
+import CertificateModal from "./CertificateModal";
+import MessageModal from "./MessageModal";
+import EventDetailsModal from "./EventDetailsModal";
 export default function EventRowCard({ event }) {
+  const [showDetails, setShowDetails] = useState(false);
+const [showMessage, setShowMessage] = useState(false);
+const [showCertificate, setShowCertificate] = useState(false);
   return (
     <div className="bg-white rounded-xl shadow-sm p-4 md:p-5 flex flex-col md:flex-row gap-4 items-start">
 
@@ -45,18 +53,18 @@ export default function EventRowCard({ event }) {
 
         {/* Actions */}
         <div className="flex gap-3 mt-4">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm" onClick={() => setShowDetails(true)}>
             View Details
           </button>
 
           {event.status === "accepted" && (
-            <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm">
+            <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm" onClick={() => setShowMessage(true)}>
               Message Organization
             </button>
           )}
 
           {event.status === "completed" && (
-            <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm">
+            <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm" onClick={() => setShowCertificate(true)}>
               Download Certificate
             </button>
           )}
@@ -100,6 +108,24 @@ export default function EventRowCard({ event }) {
     </p>
   </div>
 </div>
+
+<EventDetailsModal
+  isOpen={showDetails}
+  onClose={() => setShowDetails(false)}
+  event={event}
+/>
+
+<MessageModal
+  isOpen={showMessage}
+  onClose={() => setShowMessage(false)}
+  event={event}
+/>
+
+<CertificateModal
+  isOpen={showCertificate}
+  onClose={() => setShowCertificate(false)}
+  event={event}
+/>
     </div>
   );
 }

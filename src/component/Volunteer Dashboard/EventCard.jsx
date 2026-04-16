@@ -4,6 +4,8 @@ import { MdOutlineCalendarToday } from "react-icons/md";
 import { FiUsers } from "react-icons/fi";
 import { FaUtensils, FaBookOpen, FaLeaf, FaHeartbeat, FaUsers } from "react-icons/fa";
 import { IoIosCheckmark } from "react-icons/io";
+import { useState } from "react";
+import ApplyModal from "./ViewAndApply";
 export default function EventCard({ event }) {
       const categoryConfig = {
     "Food & Hunger": {
@@ -28,6 +30,14 @@ export default function EventCard({ event }) {
     },
   };
 
+  const [showApply, setShowApply] = useState(false);
+  event.work=[
+    "Collect plastic waste from shoreline",
+    "Segregate recyclable materials",
+    "Assist team leaders in cleanup coordination",
+    "Spread awareness among locals",
+  ];
+  event.hours="4-5";
   const currentCategory = categoryConfig[event.category] || {
     icon: "📌",
     style: "bg-gray-100 text-gray-600",
@@ -99,10 +109,18 @@ export default function EventCard({ event }) {
         </div>
 
         {/* Button */}
-        <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg">
+        <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg"
+        onClick={() => setShowApply(true)}
+        >
           View & Apply
         </button>
       </div>
+
+      <ApplyModal
+  isOpen={showApply}
+  onClose={() => setShowApply(false)}
+  event={event}
+/>
     </div>
   );
 }

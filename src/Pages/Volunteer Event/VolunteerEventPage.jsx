@@ -49,7 +49,7 @@ export default function MyEvents() {
       : events.filter((e) => e.status.toLowerCase() === active.toLowerCase());
 
   return (
-    <div className="bg-[#F9FAFB] min-h-screen">
+    <div className="bg-[#F9FAFB] min-h-screen ">
 
       <div className="max-w-7xl mx-auto px-4 py-8">
 
@@ -63,10 +63,10 @@ export default function MyEvents() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <StatusCard title="Applied" count={1} color="bg-blue-100" />
-          <StatusCard title="Accepted" count={2} color="bg-green-100" />
-          <StatusCard title="Completed" count={1} color="bg-purple-100" />
-          <StatusCard title="Rejected" count={1} color="bg-red-100" />
+          <StatusCard title="Applied" count={1} color={{ bg: "bg-blue-100", text: "text-blue-500" }} />
+          <StatusCard title="Accepted" count={2} color={{ bg: "bg-green-100", text: "text-green-500" }} />
+          <StatusCard title="Completed" count={1} color={{ bg: "bg-purple-100", text: "text-purple-500" }} />
+          <StatusCard title="Rejected" count={1} color={{ bg: "bg-red-100", text: "text-red-500" }} />
         </div>
 
         {/* Tabs */}

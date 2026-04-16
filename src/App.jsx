@@ -5,6 +5,7 @@ import Navbar from "./component/Main/NavBar";
 import LoginPage from "./Pages/Login/LoginPage";
 import Dashboard from "./Pages/Volunteer Dashboard/VolunteerDashboard";
 import MyEvents from "./Pages/Volunteer Event/VolunteerEventPage";
+import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage";
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +43,17 @@ function App() {
         <MyEvents/>
           </>
         } />
+
+<Route path="/my-invites" element=
+        {
+          <>
+        <Navbar />  
+        <VolunteerInvitesPage/>
+          </>
+        } />
+
+        
+
 
 
       </Routes>
