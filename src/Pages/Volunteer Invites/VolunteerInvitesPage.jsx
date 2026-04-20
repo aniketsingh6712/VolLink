@@ -44,7 +44,7 @@ export default function VolunteerInvitesPage() {
   };
 
   return (
-    <div className="px-6 md:px-12 py-8 bg-[#F9FAFB] min-h-screen">
+    <div className="px-6 md:px-12 py-8 bg-[#F9FAFB] min-h-screen max-w-7xl mx-auto">
 
       {/* Heading */}
       <h1 className="text-3xl font-bold text-[#0F172A]">
@@ -60,17 +60,17 @@ export default function VolunteerInvitesPage() {
 
         <div className="bg-yellow-50 p-6 rounded-xl">
           <p className="text-yellow-600">Pending</p>
-          <h2 className="text-2xl font-bold">{stats.pending}</h2>
+          <h2 className="text-2xl font-bold text-yellow-600">{stats.pending}</h2>
         </div>
 
         <div className="bg-green-50 p-6 rounded-xl">
           <p className="text-green-600">Accepted</p>
-          <h2 className="text-2xl font-bold">{stats.accepted}</h2>
+          <h2 className="text-2xl font-bold text-green-600">{stats.accepted}</h2>
         </div>
 
         <div className="bg-red-50 p-6 rounded-xl">
           <p className="text-red-600">Rejected</p>
-          <h2 className="text-2xl font-bold">{stats.rejected}</h2>
+          <h2 className="text-2xl font-bold text-red-600">{stats.rejected}</h2>
         </div>
       </div>
 

@@ -392,13 +392,21 @@ const [previewFile, setPreviewFile] = useState(null);
       </div>
     )}
 
-    {/* Continue */}
-    <button
-      onClick={() => setStep(2)}
-      className="w-full bg-blue-600 text-white py-2.5 rounded-lg"
-    >
-      Continue
-    </button>
+   <div className="flex gap-3">
+      <button
+        onClick={() => setStep(1)}
+        className="flex-1 border py-2 rounded-lg"
+      >
+        Back
+      </button>
+
+      <button
+        onClick={() => setStep(3)}
+        className="flex-1 bg-blue-600 text-white py-2 rounded-lg"
+      >
+        Continue
+      </button>
+    </div>
   </div>
 )}
       
@@ -447,14 +455,14 @@ const [previewFile, setPreviewFile] = useState(null);
     {/* Buttons */}
     <div className="flex gap-3">
       <button
-        onClick={() => setStep(1)}
+        onClick={() => setStep(2)}
         className="flex-1 border py-2 rounded-lg"
       >
         Back
       </button>
 
       <button
-        onClick={() => setStep(3)}
+        onClick={() => setStep(4)}
         className="flex-1 bg-blue-600 text-white py-2 rounded-lg"
       >
         Continue
@@ -519,7 +527,7 @@ const [previewFile, setPreviewFile] = useState(null);
     {/* Buttons */}
     <div className="flex gap-3">
       <button
-        onClick={() => setStep(2)}
+        onClick={() => setStep(3)}
         className="flex-1 border py-2 rounded-lg"
       >
         Back

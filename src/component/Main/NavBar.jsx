@@ -3,13 +3,13 @@ import { TbSnowflake } from "react-icons/tb";
 import { PiBell } from "react-icons/pi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
-
+import { useState, useRef, useEffect } from "react";
 // export default function Navbar() {
 //   const isLoggedIn = false;
 
 //   return (
 //     <nav className="w-full bg-[#2c2c2c] px-6 md:px-12 py-4 shadow-md sticky top-0 z-50">
-      
+
 //       {/* 🔥 GRID LAYOUT */}
 //       <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
 
@@ -36,7 +36,7 @@ import { FiLogOut } from "react-icons/fi";
 
 //         {/* RIGHT: Actions */}
 //         <div className="flex justify-end items-center gap-4 text-gray-300">
-          
+
 //           {isLoggedIn ? (
 //             <>
 //               {/* Notification */}
@@ -76,15 +76,56 @@ import { FiLogOut } from "react-icons/fi";
 //     </nav>
 //   );
 // }
-
+import NotificationPanel from "./NotificationComponent";
 export default function Navbar() {
-  const isLoggedIn = false; // Change to true to see logged-in state
+  const isLoggedIn = true; // Change to true to see logged-in state
+  const [showNotifications, setShowNotifications] = useState(false);
+  const notifications = [
+    {
+      id: 1,
+      title: "Event Applied",
+      message: "You have successfully applied to Food Donation Drive",
+      time: "2h ago",
+      type: "success",
+    },
+    {
+      id: 2,
+      title: "Event Applied",
+      message: "You have successfully applied to Food Donation Drive",
+      time: "2h ago",
+      type: "success",
+    },
+    {
+      id: 3,
+      title: "Event Applied",
+      message: "You have successfully applied to Food Donation Drive",
+      time: "2h ago",
+      type: "success",
+    },
+  ];
+
+  const [notificationsList,setNotificationsList] = useState(notifications);
+  const dropdownRef = useRef(null);
+  useEffect(() => {
+  function handleClickOutside(event) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setShowNotifications(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
   return (
     <nav className="w-full bg-[#2c2c2c] px-6 md:px-12 py-4 shadow-md sticky top-0 z-50">
-      
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-
         {/* LEFT */}
         <div className="flex items-center gap-2 text-white font-semibold text-xl">
           <TbSnowflake className="text-blue-400 text-3xl" />
@@ -94,17 +135,44 @@ export default function Navbar() {
         {/* CENTER */}
         {isLoggedIn && (
           <div className="flex gap-8 text-gray-300">
-            <Link to="/" className="hover:text-white text-sm">Home</Link>
-            <Link to="/events" className="hover:text-white text-sm">My Events</Link>
-            <Link to="/invites" className="hover:text-white text-sm">Invites</Link>
+            <Link to="/vol-dashboard" className="hover:text-white text-sm">
+              Home
+            </Link>
+            <Link to="/my-events" className="hover:text-white text-sm">
+              My Events
+            </Link>
+            <Link to="/my-invites" className="hover:text-white text-sm">
+              Invites
+            </Link>
           </div>
         )}
 
         {/* RIGHT */}
-        <div className="flex items-center gap-4 text-gray-300">
+        <div className="flex items-center gap-5 text-gray-300">
           {isLoggedIn ? (
             <>
-              <PiBell className="w-5 h-5 hover:text-white" />
+              <div className="relative" ref={dropdownRef}>
+                {/* Bell */}
+                <div
+                  className="relative cursor-pointer"
+                  onClick={() => setShowNotifications(!showNotifications)}
+                >
+                  <PiBell className="w-5 h-5 hover:text-white" />
+
+                  {/* Badge */}
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 rounded-full">
+                    {notificationsList.length}
+                  </span>
+                </div>
+
+                {/* Dropdown */}
+                {showNotifications && (
+                  <NotificationPanel
+                    notifications={notificationsList}
+                    onClose={() => setShowNotifications(false)}
+                  />
+                )}
+              </div>
               <FaRegUserCircle className="w-5 h-5 hover:text-white" />
               <FiLogOut className="w-5 h-5 hover:text-white cursor-pointer" />
             </>
@@ -113,13 +181,15 @@ export default function Navbar() {
               <Link to="/login" className="hover:text-white text-sm">
                 Login
               </Link>
-              <Link to="/register" className="bg-blue-600 px-4 py-2 rounded-lg text-sm text-white">
+              <Link
+                to="/register"
+                className="bg-blue-600 px-4 py-2 rounded-lg text-sm text-white"
+              >
                 Sign Up
               </Link>
             </>
           )}
         </div>
-
       </div>
     </nav>
   );

@@ -50,7 +50,7 @@ export default function Dashboard() {
     : events;
 
   return (
-     <div className="bg-[#F9FAFB] min-h-screen">
+     <div className="bg-[#F9FAFB] min-h-screen max-w-7xl mx-auto px-6 md:px-12 py-8">
 
       {/* CENTERED CONTENT */}
       <div className="max-w-7xl mx-auto px-4 py-6 md:py-12">

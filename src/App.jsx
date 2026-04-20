@@ -6,6 +6,8 @@ import LoginPage from "./Pages/Login/LoginPage";
 import Dashboard from "./Pages/Volunteer Dashboard/VolunteerDashboard";
 import MyEvents from "./Pages/Volunteer Event/VolunteerEventPage";
 import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage";
+import OrganizationDashboard from "./Pages/Organisation/Dashboard/Dashboard";
+import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
 function App() {
   return (
     <BrowserRouter>
@@ -28,7 +30,7 @@ function App() {
         } />
 
         
-      <Route path="/volunteer" element=
+      <Route path="/vol-dashboard" element=
         {
           <>
         <Navbar />  
@@ -54,6 +56,21 @@ function App() {
 
         
 
+ <Route path="/org-dashboard" element=
+        {
+          <>
+        <Navbar />  
+        <OrganizationDashboard/>
+          </>
+        } />
+
+        <Route path="/event-details" element=
+        {
+          <>
+        <Navbar />  
+        <EventDetails/>
+          </>
+        } />
 
 
       </Routes>
