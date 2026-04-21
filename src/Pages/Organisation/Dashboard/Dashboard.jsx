@@ -3,6 +3,7 @@ import EventRow from "../../../component/Organisation/Dashboard component/EventR
 import { FaPlus } from "react-icons/fa6";
 import { PiClockCounterClockwise } from "react-icons/pi";
 import { LuEye } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 export default function OrganizationDashboard() {
   const stats = [
     { label: "Active Events", value: 2, color: "blue" },
@@ -49,6 +50,7 @@ export default function OrganizationDashboard() {
     },
   ];
 
+  const navigate = useNavigate();
   return (
     <div className="bg-[#F9FAFB] min-h-screen px-6 md:px-12 py-8 max-w-7xl mx-auto">
 
@@ -63,7 +65,9 @@ export default function OrganizationDashboard() {
           </p>
         </div>
 
-        <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl">
+        <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl"
+        onClick={()=>navigate("/event-create")}
+        >
           <FaPlus size={18} className="text-white"/>
           Create New Event
         </button>

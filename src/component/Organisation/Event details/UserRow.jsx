@@ -4,7 +4,18 @@ import { MdCalendarToday } from "react-icons/md";
 import { FaCheck, FaTimes, FaEye } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import { IconBtn } from "./IconBtn";
+import { useState } from "react";
+import VolunteerProfileModal from "../../../Pages/Organisation/Volunteer Profile/VolunteerProfileModal";
 export function UserRow({ user, type }) {
+  const [open, setOpen] = useState(false);
+ 
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const handleView = () => {
+      setSelectedUser(user);
+      setOpen(true);
+    };
+  
   return (
     <div className="bg-white border rounded-xl p-4 flex items-center justify-between">
 
@@ -36,7 +47,7 @@ export function UserRow({ user, type }) {
               ⏳ Pending
             </span>
 
-            <IconBtn color="blue"><FaEye /></IconBtn>
+            <IconBtn color="blue" ><FaEye /></IconBtn>
             <IconBtn color="green"><FaCheck /></IconBtn>
             <IconBtn color="red"><FaTimes /></IconBtn>
           </>
@@ -46,12 +57,23 @@ export function UserRow({ user, type }) {
               ✓ Approved
             </span>
 
-            <IconBtn color="blue"><FaEye /></IconBtn>
+            <IconBtn color="blue" onClick={handleView}>
+              <FaEye />
+            </IconBtn>
             <IconBtn color="purple"><IoSend /></IconBtn>
           </>
         )}
 
       </div>
+
+      <VolunteerProfileModal
+  isOpen={open}
+  onClose={() => setOpen(false)}
+  user={selectedUser}
+  onApprove={() => console.log("Approved")}
+  onReject={() => console.log("Rejected")}
+  onInvite={() => console.log("Invited")}
+/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export function IconBtn({ children, color }) {
+export function IconBtn({ children, color,onClick }) {
   const colors = {
     blue: "bg-blue-100 text-blue-600",
     green: "bg-green-100 text-green-600",
@@ -9,6 +9,7 @@ export function IconBtn({ children, color }) {
   return (
     <button
       className={`p-2 rounded-lg ${colors[color]} hover:opacity-80`}
+      onClick={()=>onClick()}
     >
       {children}
     </button>

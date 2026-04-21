@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 export default function EventRow({ event, history }) {
   const percent = Math.min(
     100,
     Math.round((event.applied / event.needed) * 100)
   );
+  
+  const navigate=useNavigate();
+  const navigateToDetailsPage=()=>{
+    navigate("/event-details");
+  }
 
   return (
     <div className="p-6 bg-white  flex gap-6">
@@ -100,6 +107,7 @@ export default function EventRow({ event, history }) {
                 ? "bg-purple-600 hover:bg-purple-700"
                 : "bg-blue-600 hover:bg-blue-700"
             }`}
+            onClick={navigateToDetailsPage}
           >
             View Details
           </button>

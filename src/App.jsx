@@ -8,6 +8,8 @@ import MyEvents from "./Pages/Volunteer Event/VolunteerEventPage";
 import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage";
 import OrganizationDashboard from "./Pages/Organisation/Dashboard/Dashboard";
 import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
+import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
+
 function App() {
   return (
     <BrowserRouter>
@@ -69,6 +71,15 @@ function App() {
           <>
         <Navbar />  
         <EventDetails/>
+          </>
+        } />
+
+
+         <Route path="/event-create" element=
+        {
+          <>
+        <Navbar />  
+        <CreateEvent/>
           </>
         } />
 
