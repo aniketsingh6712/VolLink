@@ -9,80 +9,83 @@ import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage
 import OrganizationDashboard from "./Pages/Organisation/Dashboard/Dashboard";
 import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
 import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
-
+import PreviousEventsPage from "./Pages/Organisation/Previous Event/PreviousEventPage";
+import PreviousEventDetails from "./Pages/Organisation/Previous Event/PreviousEventDetails";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element=
-        {
-          <>
-        <Navbar />  
-        <SignupForm />
-          </>
-        } />
-     
-      <Route path="/login" element=
-        {
-          <>
-        <Navbar />  
-        <LoginPage />
-          </>
-        } />
+          {
+            <>
+              <Navbar />
+              <SignupForm />
+            </>
+          } />
 
-        
-      <Route path="/vol-dashboard" element=
-        {
-          <>
-        <Navbar />  
-        <Dashboard/>
-          </>
-        } />
+        <Route path="/login" element=
+          {
+            <>
+              <Navbar />
+              <LoginPage />
+            </>
+          } />
 
- <Route path="/my-events" element=
-        {
-          <>
-        <Navbar />  
-        <MyEvents/>
-          </>
-        } />
 
-<Route path="/my-invites" element=
-        {
-          <>
-        <Navbar />  
-        <VolunteerInvitesPage/>
-          </>
-        } />
+        <Route path="/vol-dashboard" element=
+          {
+            <>
+              <Navbar />
+              <Dashboard />
+            </>
+          } />
 
-        
+        <Route path="/my-events" element=
+          {
+            <>
+              <Navbar />
+              <MyEvents />
+            </>
+          } />
 
- <Route path="/org-dashboard" element=
-        {
-          <>
-        <Navbar />  
-        <OrganizationDashboard/>
-          </>
-        } />
+        <Route path="/my-invites" element=
+          {
+            <>
+              <Navbar />
+              <VolunteerInvitesPage />
+            </>
+          } />
+
+
+
+        <Route path="/org-dashboard" element=
+          {
+            <>
+              <Navbar />
+              <OrganizationDashboard />
+            </>
+          } />
 
         <Route path="/event-details" element=
-        {
-          <>
-        <Navbar />  
-        <EventDetails/>
-          </>
-        } />
+          {
+            <>
+              <Navbar />
+              <EventDetails />
+            </>
+          } />
 
 
-         <Route path="/event-create" element=
-        {
-          <>
-        <Navbar />  
-        <CreateEvent/>
-          </>
-        } />
+        <Route path="/event-create" element=
+          {
+            <>
+              <Navbar />
+              <CreateEvent />
+            </>
+          } />
 
+<Route path="/previous-events" element={<><Navbar/><PreviousEventsPage/></>} />
+<Route path="/previous-events/:id" element={<><Navbar/><PreviousEventDetails/></>} />
 
       </Routes>
     </BrowserRouter>

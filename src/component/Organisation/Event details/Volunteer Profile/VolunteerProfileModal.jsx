@@ -1,8 +1,8 @@
-import Modal from "../../../component/ui/Modal";
+import Modal from "../../../ui/Modal";
 import { IoCheckmark } from "react-icons/io5";
 import { FaTimes } from "react-icons/fa";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
-
+import { LuBook } from "react-icons/lu";
 export default function VolunteerProfileModal({
   isOpen,
   onClose,
@@ -31,7 +31,7 @@ export default function VolunteerProfileModal({
     <Modal isOpen={isOpen} onClose={onClose}>
 
       {/* HEADER */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 flex justify-between items-center rounded-t-xl">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 flex justify-between items-center rounded-t-xl ">
         <h2 className="text-lg font-semibold">Candidate Profile</h2>
        
       </div>
@@ -173,7 +173,7 @@ function Row({ label, value }) {
   return (
     <div className="flex justify-between">
       <span className="text-gray-500">{label}</span>
-      <span className="font-medium">{value}</span>
+      <span className="font-semibold">{value}</span>
     </div>
   );
 }
