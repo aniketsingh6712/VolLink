@@ -11,6 +11,7 @@ import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
 import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
 import PreviousEventsPage from "./Pages/Organisation/Previous Event/PreviousEventPage";
 import PreviousEventDetails from "./Pages/Organisation/Previous Event/PreviousEventDetails";
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
   return (
     <BrowserRouter>
@@ -88,6 +89,15 @@ function App() {
 <Route path="/previous-events/:id" element={<><Navbar/><PreviousEventDetails/></>} />
 
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
     </BrowserRouter>
   );
 }

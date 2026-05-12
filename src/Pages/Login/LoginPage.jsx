@@ -2,7 +2,43 @@
 
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { supabase } from "../../utils/supabase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function LoginPage() {
+ const [user,setUser]=useState({
+  "email":"",
+  "password":""
+ })
+ const navigate = useNavigate();
+  const loginWithEmailHandler = async (event) => {
+  event.preventDefault();
+
+  const { email, password } = user;
+
+  const { data, error } =
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+  if (error) {
+    toast.error(error.message);
+    return;
+  }
+  console.log(data);
+
+  toast.success("Login successful!");
+
+  const role = data.user.user_metadata.role;
+
+  if (role === "organization") {
+    navigate("/org-dashboard");
+  } else {
+    navigate("/vol-dashboard");
+  }
+};
   return (
     <div className="min-h-screen bg-[#F1F5F9] flex items-center justify-center px-4">
 
@@ -41,6 +77,8 @@ export default function LoginPage() {
               placeholder="your@email.com"
               required
               className="w-full mt-1 px-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={user.email}
+              onChange={(e) => setUser({...user, email: e.target.value})}
             />
           </div>
 
@@ -51,12 +89,14 @@ export default function LoginPage() {
               placeholder="••••••••"
               required
               className="w-full mt-1 px-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={user.password}
+              onChange={(e) => setUser({...user, password: e.target.value})}
             />
           </div>
 
           {/* Login Button */}
           <button
-            type="submit"
+           onClick={loginWithEmailHandler}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium text-sm mt-2"
           >
             Log In
