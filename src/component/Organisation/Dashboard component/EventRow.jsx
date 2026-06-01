@@ -8,7 +8,7 @@ export default function EventRow({ event, history }) {
   
   const navigate=useNavigate();
   const navigateToDetailsPage=()=>{
-    navigate("/event-details");
+    navigate(`/organization/event-details/${event.id}`);
   }
 
   return (
@@ -67,7 +67,7 @@ export default function EventRow({ event, history }) {
                 Needed <b>{event.needed}</b>
               </span>
               <span className="text-blue-600">
-                Remaining <b>{event.needed - event.applied}</b>
+                Remaining <b>{event.needed - event.selected}</b>
               </span>
             </div>
 

@@ -7,9 +7,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 export default function LoginPage() {
+
  const [user,setUser]=useState({
-  "email":"",
-  "password":""
+  email:"",
+  password:""
  })
  const navigate = useNavigate();
   const loginWithEmailHandler = async (event) => {
@@ -28,16 +29,41 @@ export default function LoginPage() {
     return;
   }
   console.log(data);
+  toast.success("Logged in successfully!");
+ // GET CURRENT USER
+    const {
+      data: { authUser },
+    } = await supabase.auth.getUser();
 
-  toast.success("Login successful!");
+    // FETCH PROFILE
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", authUser.id)
+      .single();
 
-  const role = data.user.user_metadata.role;
+    // ORGANIZATION FLOW
+    if (profile.role === "organization") {
 
-  if (role === "organization") {
-    navigate("/org-dashboard");
-  } else {
-    navigate("/vol-dashboard");
-  }
+      const { data: orgProfile } = await supabase
+        .from("organization_profiles")
+        .select("*")
+        .eq("user_id", authUser.id)
+        .single();
+
+      // NOT APPLIED
+      if (!orgProfile) {
+        navigate("/organization/setup");
+        return;
+      }
+
+      // APPLIED
+      navigate("/organization/profile");
+      return;
+    }
+
+    // VOLUNTEER FLOW
+    navigate("/volunteer/dashboard");
 };
   return (
     <div className="min-h-screen bg-[#F1F5F9] flex items-center justify-center px-4">

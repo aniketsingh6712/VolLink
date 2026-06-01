@@ -11,7 +11,11 @@ import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
 import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
 import PreviousEventsPage from "./Pages/Organisation/Previous Event/PreviousEventPage";
 import PreviousEventDetails from "./Pages/Organisation/Previous Event/PreviousEventDetails";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
+import OrganizationSetup from "./Pages/Organisation/Dashboard/OrganisationSetup";
+import OrganizationProfile from "./Pages/Organisation/Dashboard/OrganizationProfile";
+import EditOrganizationApplication from "./Pages/Organisation/Dashboard/OrganisationApplicationEditForm";
+import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/ActivityCenter";
 function App() {
   return (
     <BrowserRouter>
@@ -60,7 +64,7 @@ function App() {
 
 
 
-        <Route path="/org-dashboard" element=
+        <Route path="/organization/dashboard" element=
           {
             <>
               <Navbar />
@@ -68,7 +72,7 @@ function App() {
             </>
           } />
 
-        <Route path="/event-details" element=
+        <Route path="/organization/event-details/:id" element=
           {
             <>
               <Navbar />
@@ -84,10 +88,19 @@ function App() {
               <CreateEvent />
             </>
           } />
+          <Route path = "/organization/activity-center" element={
+            <>
+              <Navbar />  
+              <ActivityCenter />
+            </>
+           } />
 
 <Route path="/previous-events" element={<><Navbar/><PreviousEventsPage/></>} />
 <Route path="/previous-events/:id" element={<><Navbar/><PreviousEventDetails/></>} />
 
+<Route path="/organization/setup" element={<><Navbar/><OrganizationSetup/></>} />
+<Route path="/organization/profile" element={<><Navbar/><OrganizationProfile/></>} />
+<Route path="/organization/edit/application" element={<><Navbar/>< EditOrganizationApplication/></>} />
       </Routes>
       <ToastContainer
         position="top-right"

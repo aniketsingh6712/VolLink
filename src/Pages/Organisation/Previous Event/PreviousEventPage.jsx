@@ -69,6 +69,7 @@ import { useNavigate } from "react-router-dom";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { PiMapPinAreaBold } from "react-icons/pi";
 import { MdOutlinePeopleOutline } from "react-icons/md";
+import OrganizationVerificationGuard from "../verification/OrganizationVerificationGuard";
 export default function PreviousEventsPage() {
   const navigate = useNavigate();
 
@@ -91,7 +92,7 @@ export default function PreviousEventsPage() {
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen max-w-7xl mx-auto px-6 md:px-10 py-8">
-
+      <OrganizationVerificationGuard>
       {/* HEADER */}
       <div className="bg-gradient-to-r from-indigo-100 to-purple-100 rounded-3xl px-6 py-6 mb-8 border">
         <h1 className="text-3xl font-bold text-gray-900">
@@ -153,6 +154,7 @@ export default function PreviousEventsPage() {
           </div>
         ))}
       </div>
+      </OrganizationVerificationGuard>
     </div>
   );
 }

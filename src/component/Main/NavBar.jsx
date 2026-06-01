@@ -123,7 +123,7 @@ export default function Navbar() {
             {role === "organization" && (
               <>
                 <NavLink
-                  to="/org-dashboard"
+                  to="/organization/dashboard"
                   className={navClass}      
                 >
                   Dashboard
@@ -139,10 +139,10 @@ export default function Navbar() {
                 </NavLink>
 
                 <NavLink
-                  to="/sent-invites"
+                  to="/organization/activity-center"
                   className={navClass}  
                 >
-                  Invites
+                  Activity Center
                 </NavLink>
 
                 <NavLink
@@ -195,7 +195,7 @@ export default function Navbar() {
 
               {/* PROFILE */}
               <button
-                onClick={() => navigate("/profile")}
+                onClick={() => navigate("/organization/profile")}
               >
                 <FaRegUserCircle className="w-5 h-5 hover:text-white" />
               </button>
