@@ -151,6 +151,12 @@ export default function Navbar() {
                 >
                   Previous Events
                 </NavLink>
+                <NavLink
+                  to="/organization/tracker"
+                  className={navClass}  
+                >
+                  Tracker
+                </NavLink>
               </>
             )}
           </div>

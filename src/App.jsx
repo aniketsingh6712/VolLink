@@ -16,6 +16,7 @@ import OrganizationSetup from "./Pages/Organisation/Dashboard/OrganisationSetup"
 import OrganizationProfile from "./Pages/Organisation/Dashboard/OrganizationProfile";
 import EditOrganizationApplication from "./Pages/Organisation/Dashboard/OrganisationApplicationEditForm";
 import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/ActivityCenter";
+import Tracker from "./Pages/Organisation/Tracking/Tracker";
 function App() {
   return (
     <BrowserRouter>
@@ -101,6 +102,7 @@ function App() {
 <Route path="/organization/setup" element={<><Navbar/><OrganizationSetup/></>} />
 <Route path="/organization/profile" element={<><Navbar/><OrganizationProfile/></>} />
 <Route path="/organization/edit/application" element={<><Navbar/>< EditOrganizationApplication/></>} />
+<Route path="/organization/tracker" element={<><Navbar/><Tracker/></>} />
       </Routes>
       <ToastContainer
         position="top-right"

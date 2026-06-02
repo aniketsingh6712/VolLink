@@ -4,7 +4,12 @@ import { FaCheckCircle } from "react-icons/fa";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import CompletedEventCard from "../../../../component/Organisation/ActivityCenter/CompletedEventCard";
-
+import { LuSend } from "react-icons/lu";
+import { SiTicktick } from "react-icons/si";
+import { FaRegClock } from "react-icons/fa";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { LuChartColumnIncreasing } from "react-icons/lu";
+import { BsChatLeft } from "react-icons/bs";
 export default function ActivityCenter() {
     const [activeTab, setActiveTab] = useState("completed");
 
@@ -204,6 +209,46 @@ export default function ActivityCenter() {
         },
     ];
 
+    const volunteerInvitations = [
+        {
+            id: 1,
+            volunteerName: "Sarah Johnson",
+            volunteerAvatar: "https://i.pravatar.cc/150?img=1",
+            eventTitle: "Winter Food Distribution",
+            role: "Food Packager",
+            status: "Accepted",
+            responseTime: "2 hours ago",
+        },
+        {
+            id: 2,      
+
+        volunteerName: "Mike Chen",
+            volunteerAvatar: "https://i.pravatar.cc/150?img=2",
+            eventTitle: "Community Health Awareness Camp",
+            role: "Medical Assistant",
+            status: "Pending",
+            responseTime: "5 hours ago",
+        },
+        {
+            id: 3,
+            volunteerName: "Emma Davis",
+            volunteerAvatar: "https://i.pravatar.cc/150?img=3",
+            eventTitle: "Tree Plantation Drive",
+            role: "Team Leader",
+            status: "Accepted",
+            responseTime: "1 day ago",
+        },
+        {
+            id: 4,
+            volunteerName: "David Wilson",  
+            volunteerAvatar: "https://i.pravatar.cc/150?img=4",
+            eventTitle: "Digital Literacy Workshop",
+            role: "Technical Support",
+            status: "Pending",
+            responseTime: "3 hours ago",
+        },
+    ];
+
     const [category, setCategory] = useState("");
     const filteredEvents = completedEvents.filter((event) => {
         if (!category) return true;
@@ -211,10 +256,10 @@ export default function ActivityCenter() {
         return event.category === category;
     });
     return (
-        <div className="bg-[#F9FAFB] min-h-screen max-w-7xl  px-6 md:px-12 py-8">
+        <div className="bg-[#F9FAFB] min-h-screen max-w-7xl  px-6 mx-auto md:px-12 py-8 md:py-12">
 
             {/* HEADER */}
-            <div>
+            <div className="mt-4">
                 <h1 className="text-5xl font-bold text-[#0F172A]">
                     Organization Activity Center
                 </h1>
@@ -226,7 +271,7 @@ export default function ActivityCenter() {
             </div>
 
             {/* TABS */}
-            <div className="flex gap-10 mt-10 border-gray-300 border-b">
+            <div className="flex gap-10 mt-10 border-gray-300 border-b mb-8">
 
                 <button
                     onClick={() => setActiveTab("completed")}
@@ -335,25 +380,163 @@ export default function ActivityCenter() {
             )}
 
             {activeTab === "outreach" && (
-                <div className="mt-8">
-
-                    <div className="bg-white rounded-3xl border p-12 text-center">
-
-                        <div className="text-6xl mb-4">
-                            📨
+                <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-start gap-1">
+                            <div className="bg-blue-100 w-max p-2 rounded-lg mb-3">
+                                <LuSend className="text-2xl text-blue-500" />
+                            </div>
+                            <h2 className="text-sm font-medium  mb-1 text-gray-500">
+                                Total Invites
+                            </h2>
+                            <p className="text-3xl font-bold mt-2">
+                                128
+                            </p>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-[#0F172A]">
-                            Invitations & Outreach
-                        </h2>
-
-                        <p className="text-gray-500 mt-2">
-                            Invitation analytics, sent invites,
-                            accepted invites, and volunteer outreach
-                            history will appear here.
-                        </p>
-
+                        <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-start gap-1">
+                            <div className="bg-green-100 w-max p-2 rounded-lg mb-3">
+                                <SiTicktick className="text-2xl text-green-700" />
+                            </div>
+                            <h2 className="text-sm font-medium  mb-1 text-gray-500">
+                                Accepted
+                            </h2>
+                            <p className="text-3xl font-bold  mt-2">
+                                96
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-start gap-1">
+                            <div className="bg-yellow-100 w-max p-2 rounded-lg mb-3">
+                                <FaRegClock className="text-2xl text-yellow-700" />
+                            </div>
+                            <h2 className="text-sm font-medium  mb-1 text-gray-500">
+                                Pending
+                            </h2>
+                            <p className="text-3xl font-bold mt-2">
+                                20
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-start gap-1">
+                            <div className="bg-violet-100 w-max p-2 rounded-lg mb-3">
+                                <FaArrowTrendUp className="text-2xl text-violet-700" />
+                            </div>
+                            <h2 className="text-sm font-medium  mb-1 text-gray-500">
+                                Acceptance Rate
+                            </h2>
+                            <p className="text-3xl font-bold mt-2">
+                                12
+                            </p>
+                        </div>
                     </div>
+
+                    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                        <div className="flex  justify-between mb-6">
+                            <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                                <span>
+                                    <LuChartColumnIncreasing className="inline text-3xl text-blue-500" />
+                                </span>
+                                Invitation Activity
+                            </h2>
+
+                            <div>
+                            <div className="flex-1 relative w-64">
+                            <FiSearch
+                                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                                size={20}
+                            />
+
+                            <input
+                                type="text"
+                                placeholder="Search events..."
+                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm transition"
+                            />
+                        </div>
+                        </div>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b  border-gray-200">
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Volunteer
+                                        </th>
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Event
+                                        </th>
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Role
+                                        </th>
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Status
+                                        </th>
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Response Time
+                                        </th>
+                                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {volunteerInvitations.map((invite) => (
+                                        <tr
+                                            key={invite.id}
+                                            className="border-b border-gray-100 hover:bg-gray-50 transition"
+                                        >
+                                            <td className="py-3 px-4">
+                                                <div className="flex items-center gap-3">
+                                                    <img
+                                                        src={invite.volunteerAvatar}
+                                                        alt={invite.volunteerName}
+                                                        className="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
+                                                    />
+                                                    <span className="text-sm font-medium text-gray-900">
+                                                        {invite.volunteerName}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                <span className="text-sm text-gray-900 font-medium">{invite.eventTitle}</span>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">{invite.role}</span>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                               <div className="flex items-center gap-2">
+                                                {invite.status === "Accepted" ? (   
+                                                    <FaCheckCircle className="text-green-500" />
+                                                ) : (
+                                                    <FaCheckCircle className="text-gray-400" />
+                                                )}
+                                                <span className={`text-sm font-medium ${invite.status === "Accepted" ? "text-green-700" : "text-gray-500"}`}>
+                                                    {invite.status}
+                                                </span>
+                                               </div>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                <span className="text-sm text-gray-600">{invite.responseTime}</span>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                               <div className="flex items-center gap-4">
+                                                {invite.status === "Pending" && (
+                                                     <button className="text-blue-600 hover:text-blue-800 text-sm font-medium cursor-pointer">
+                                                        <LuSend className="inline text-lg" /> 
+                                                    </button>
+                                                )}
+                                                <button className="text-gray-600 hover:text-blue-800 text-sm font-medium cursor-pointer">
+                                                    <BsChatLeft className="inline text-lg" /> 
+                                                </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+
+                                    </tbody>
+                            </table>
+                            </div>
+                    </div>
+                    
 
                 </div>
             )}
