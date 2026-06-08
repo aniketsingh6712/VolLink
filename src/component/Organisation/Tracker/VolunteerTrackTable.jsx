@@ -1,157 +1,83 @@
-import {
-FiEye
-} from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
+import { CiClock2 } from "react-icons/ci";
+export default function VolunteerTrackerTable({ data, onView }) {
+  return (
+    <div className="bg-white rounded-2xl mt-8 overflow-hidden border border-gray-200 shadow-sm">
+      <table className="w-full">
+        <thead className="bg-gray-50 border-b border-gray-200">
+          <tr >
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm">Volunteer</th>
 
-export default function VolunteerTrackerTable({
-data,
-onView
-}){
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm">Check-in</th>
 
-return(
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm">Check-out</th>
 
-<div className="bg-white rounded-3xl mt-8 overflow-hidden border">
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm" >Hours</th>
 
-<table className="w-full">
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm">Status</th>
 
-<thead>
+            <th className="text-left py-4 px-6 font-semibold text-gray-700 text-sm">Actions</th>
+          </tr>
+        </thead>
 
-<tr className="border-b">
+        <tbody className="divide-y divide-gray-200">
+          {data.map((v) => (
+            <tr key={v.id} className="hover:bg-gray-50 transition">
+              <td className="py-4 px-6">
+                <div className="flex items-center gap-3">
+                  <img src={v.avatar} className="w-10 h-10 rounded-full border-2 border-blue-400" />
 
-<th className="p-6 text-left">
-Volunteer
-</th>
+                  <div>
+                    <p className="font-semibold text-gray-900">{v.name}</p>
 
-<th>
-Check-in
-</th>
+                    <p className="text-xs text-gray-500">{v.email}</p>
+                  </div>
+                </div>
+              </td>
 
-<th>
-Check-out
-</th>
+              <td className="py-4 px-6">
+                <div >
+                    <p className="font-semibold">{v.checkin}</p>
+                    <p className="text-xs text-gray-500">{v.location}</p>
+                </div>
+                </td>
 
-<th>
-Hours
-</th>
+              <td className="py-4 px-6 font-semibold">{v.checkout || "Pending"}</td>
 
-<th>
-Status
-</th>
+              <td className="py-4 px-6">
+                <div className="flex items-center gap-2">
+                     <CiClock2 size={18} className="text-gray-500 font-bold"/>
+                     {v.hours}h
+                </div>
+               </td>
 
-<th>
-Actions
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-{data.map((v)=>(
-
-<tr
-key={v.id}
-className="border-b"
->
-
-<td className="p-6">
-
-<div className="flex gap-4">
-
-<img
-src={v.avatar}
-className="w-14 h-14 rounded-full"
-/>
-
-<div>
-
-<p className="font-semibold">
-{v.name}
-</p>
-
-<p className="text-sm text-gray-500">
-{v.email}
-</p>
-
-</div>
-
-</div>
-
-</td>
-
-<td>
-{v.checkin}
-</td>
-
-<td>
-
-{
-v.checkout||
-"Pending"
-}
-
-</td>
-
-<td>
-
-{v.hours}h
-
-</td>
-
-<td>
-
-<span
-className={`
+              <td className="py-4 px-6">
+                <span
+                  className={` inline-flex items-center gap-1
 px-3
 py-1
 rounded-full
-
+text-xs font-semibold
 ${
-v.status==="ACTIVE"
-?
-"bg-green-100 text-green-700"
-:
-"bg-blue-100 text-blue-700"
+  v.status === "ACTIVE"
+    ? "bg-green-100 text-green-800"
+    : "bg-blue-100 text-blue-800"
 }
 `}
->
+                >
+                  {v.status === "ACTIVE" ? "● Active" : "Checked Out"}
+                </span>
+              </td>
 
-{
-v.status==="ACTIVE"
-?
-"● Active"
-:
-"Checked Out"
-}
-
-</span>
-
-</td>
-
-<td>
-
-<button
-onClick={()=>
-onView(v)
-}
->
-
-<FiEye/>
-
-</button>
-
-</td>
-
-</tr>
-
-))}
-
-</tbody>
-
-</table>
-
-</div>
-
-);
-
+              <td className="py-4 px-6">
+                <button onClick={() => onView(v)} className="p-2 hover:bg-gray-200 rounded-lg transition text-lg cursor-pointer" title="view details">
+                  <FiEye/>
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }

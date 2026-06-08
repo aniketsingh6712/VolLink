@@ -2,15 +2,16 @@ import { FiUsers, FiLogOut } from "react-icons/fi";
 
 export default function TrackerTabs({ tab, setTab, volunteers }) {
   return (
-    <div className="flex gap-12 mt-14 border-b">
+    <div className="flex gap-12 mt-14 border-b border-gray-200 text-md font-semibold">
       <button
         onClick={() => setTab("active")}
         className={`
-pb-4
+pb-3
 font-semibold
 border-b-4
-
-${tab === "active" ? "text-blue-600 border-blue-600" : "border-transparent"}
+px-6
+cursor-pointer
+${tab === "active" ? "text-blue-500 border-blue-500" : "border-transparent"}
 `}
       >
         <FiUsers className="inline mr-2" />
@@ -20,11 +21,12 @@ ${tab === "active" ? "text-blue-600 border-blue-600" : "border-transparent"}
       <button
         onClick={() => setTab("out")}
         className={`
-pb-4
+pb-3
 font-semibold
 border-b-4
-
-${tab === "out" ? "text-blue-600 border-blue-600" : "border-transparent"}
+px-6
+cursor-pointer
+${tab === "out" ? "text-blue-500 border-blue-500" : "border-transparent"}
 `}
       >
         <FiLogOut className="inline mr-2" />
