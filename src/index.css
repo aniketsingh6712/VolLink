@@ -11,3 +11,7 @@
 .btn-secondary {
   @apply flex-1 border py-2 rounded-lg;
 }
+
+button{
+  cursor: pointer;
+}

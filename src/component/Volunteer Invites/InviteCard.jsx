@@ -149,7 +149,7 @@ export default function InviteCard({ invite, onAccept, onReject }) {
 
         {/* STATUS */}
         <span
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm capitalize font-semibold ${
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm capitalize font-semibold ${
             invite.status === "accepted"
               ? "bg-green-100 text-green-700"
               : invite.status === "rejected"
@@ -228,41 +228,11 @@ export default function InviteCard({ invite, onAccept, onReject }) {
         </div>
       </div>
 
-      {/* ACTION BUTTONS */}
-      {/* ACTION BUTTONS */}
-      {invite.status === "pending" && (
-        <>
-          <div className="border-t border-gray-200 my-5"></div>
+    
+      
+      
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* REJECT */}
-            <button
-              onClick={() => {
-                setActionType("reject");
-                setConfirmOpen(true);
-              }}
-              className="flex-1 h-10 rounded-lg border border-red-200 bg-white text-red-600 text-sm font-semibold hover:bg-red-50 transition flex items-center justify-center gap-2"
-            >
-              <FaTimes size={12} />
-              Reject
-            </button>
-
-            {/* ACCEPT */}
-            <button
-              onClick={() => {
-                setActionType("accept");
-                setConfirmOpen(true);
-              }}
-              className="flex-1 h-10 rounded-lg bg-gradient-to-r from-green-600 to-emerald-500 text-white text-sm font-semibold hover:opacity-95 transition flex items-center justify-center gap-2"
-            >
-              <FaCheck size={12} />
-              Accept
-            </button>
-          </div>
-        </>
-      )}
-
-      <ConfirmDialog
+      {/* <ConfirmDialog
         isOpen={confirmOpen}
         onClose={() => setConfirmOpen(false)}
         type={actionType === "reject" ? "danger" : "success"}
@@ -282,7 +252,9 @@ export default function InviteCard({ invite, onAccept, onReject }) {
             onAccept(invite);
           }
         }}
-      />
+      /> */}
+
+    
     </div>
   );
 }
