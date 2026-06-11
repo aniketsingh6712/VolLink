@@ -1,13 +1,6 @@
-import { FiClock, FiCheckCircle, FiXCircle } from "react-icons/fi";
 
-export default function InvitationTabs({ tab, setTab }) {
-  const tabs = [
-    ["pending", "Pending", FiClock],
 
-    ["accepted", "Accepted", FiCheckCircle],
-
-    ["rejected", "Rejected", FiXCircle],
-  ];
+export default function InvitationTabs({ tab, setTab, tabs }) {
 
   return (
     <div className="flex gap-4 border-b mb-6 border-gray-200">

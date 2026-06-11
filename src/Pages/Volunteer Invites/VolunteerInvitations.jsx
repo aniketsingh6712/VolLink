@@ -8,11 +8,18 @@ import InvitationStats from "../../component/Volunteer Invites/InvitationStats";
 import InvitationTabs from "../../component/Volunteer Invites/InvitationTabs";
 import InvitationSearch from "../../component/Volunteer Invites/InvitationSearch";
 import InvitationGrid from "../../component/Volunteer Invites/InvitationGrid";
-
+import { FiClock, FiCheckCircle, FiXCircle } from "react-icons/fi";
 export default function VolunteerInvitations() {
   const [tab, setTab] = useState("pending");
 
   const [search, setSearch] = useState("");
+    const tabs = [
+    ["pending", "Pending", FiClock],
+
+    ["accepted", "Accepted", FiCheckCircle],
+
+    ["rejected", "Rejected", FiXCircle],
+  ];
 
   const invitations = [
     {
@@ -110,6 +117,37 @@ export default function VolunteerInvitations() {
     },
   ]; // later from supabase
 
+  // const handleAcceptClick = (invite) => {
+  //   setSelectedInvite(invite);
+  //   setShowAccept(true);
+  // };
+
+  // const handleRejectClick = (invite) => {
+  //   setSelectedInvite(invite);
+  //   setShowReject(true);
+  // };
+
+  // const confirmAccept = () => {
+  //   console.log("Accepted:", selectedInvite);
+
+  //   // API call
+
+  //   setShowAccept(false);
+  //   setSelectedInvite(null);
+  // };
+
+  // const confirmReject = (reason) => {
+  //   console.log("Rejected:", selectedInvite, reason);
+
+  //   // API call
+
+  //   setShowReject(false);
+  //   setSelectedInvite(null);
+  // };
+  // const [selectedInvite, setSelectedInvite] = useState(null);
+  // const [showAccept, setShowAccept] = useState(false);
+  // const [showReject, setShowReject] = useState(false);
+
   return (
     <div className="px-6 md:px-12 py-8 bg-[#F9FAFB] min-h-screen max-w-7xl mx-auto">
       <div className="mb-8">
@@ -123,7 +161,7 @@ export default function VolunteerInvitations() {
       {/* SEND HERE */}
       <InvitationStats invitations={invitations} />
 
-      <InvitationTabs tab={tab} setTab={setTab} />
+      <InvitationTabs tab={tab} setTab={setTab} tabs={tabs} />
 
       <InvitationSearch value={search} onChange={setSearch} />
 
@@ -131,12 +169,15 @@ export default function VolunteerInvitations() {
         tab={tab}
         search={search}
         invitations={invitations}
-        /* actions */
         onAccept={(invite) => {
-          console.log("Accepted", invite);
+          console.log("Accepted:", invite);
+
+          // update status API later
         }}
-        onReject={(invite) => {
-          console.log("Rejected", invite);
+        onReject={(invite, reason) => {
+          console.log("Rejected:", invite, "Reason:", reason);
+
+          // update status API later
         }}
         onViewEvent={(invite) => {
           console.log("View Event", invite);

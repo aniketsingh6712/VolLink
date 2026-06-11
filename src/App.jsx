@@ -18,6 +18,7 @@ import EditOrganizationApplication from "./Pages/Organisation/Dashboard/Organisa
 import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/ActivityCenter";
 import Tracker from "./Pages/Organisation/Tracking/Tracker";
 import VolunteerInvitations from "./Pages/Volunteer Invites/VolunteerInvitations";
+import EventStatus from "./Pages/Events Status/EventStatus";
 function App() {
   return (
     <BrowserRouter>
@@ -71,7 +72,12 @@ function App() {
             </>
           } />
 
-
+          <Route path="/volunteer/status" element={
+            <>
+            <Navbar />
+            <EventStatus />
+            </>
+            } />
 
         <Route path="/organization/dashboard" element=
           {

@@ -123,6 +123,12 @@ export default function Navbar() {
                 >
                   Invitations
                 </NavLink>
+                  <NavLink
+                  to="/volunteer/status"
+                  className={navClass}
+                >
+                  Event Status
+                </NavLink>
               </>
             )}
 
