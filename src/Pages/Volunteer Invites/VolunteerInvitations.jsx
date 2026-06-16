@@ -163,7 +163,7 @@ export default function VolunteerInvitations() {
 
       <InvitationTabs tab={tab} setTab={setTab} tabs={tabs} />
 
-      <InvitationSearch value={search} onChange={setSearch} />
+      <InvitationSearch value={search} onChange={setSearch} placeholder={"Search invitations by event or organization..."}/>
 
       <InvitationGrid
         tab={tab}

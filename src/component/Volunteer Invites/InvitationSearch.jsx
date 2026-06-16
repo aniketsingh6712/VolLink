@@ -1,6 +1,6 @@
 import { FiSearch } from "react-icons/fi";
 
-export default function InvitationSearch({ value, onChange }) {
+export default function InvitationSearch({ value, onChange,placeholder }) {
   return (
     <div className="relative mb-6">
       <FiSearch
@@ -16,9 +16,7 @@ text-gray-400
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="
-Search invitations by event or organization...
-"
+        placeholder={placeholder}
         className="
 w-full
 pl-10
