@@ -97,21 +97,26 @@ export default function Navbar() {
             {role === "volunteer" && (
               <>
                 <NavLink
-                  to="/vol-dashboard"
+                  to="/volunteer/dashboard"
                  className={navClass}
                 >
                   Home
                 </NavLink>
-
+              <NavLink
+                  to="/volunteer/events"
+                 className={navClass}
+                >
+                  Events
+                </NavLink>
                 <NavLink
-                  to="/my-events"
+                  to="/volunteer/my-events"
                   className={navClass}
                 >
                   My Events
                 </NavLink>
 
                 <NavLink
-                  to="/my-invites"
+                  to="/volunteer/invites"
                   className={navClass}
                 >
                   Invites

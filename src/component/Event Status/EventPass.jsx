@@ -2,6 +2,8 @@ import QRCode from "react-qr-code";
 import { FiCalendar, FiMapPin, FiDownload, FiClock } from "react-icons/fi";
 import { CiCircleAlert, CiCircleCheck } from "react-icons/ci";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { IoShareSocial } from "react-icons/io5";
 export default function BoardingPass({
   volunteer,
   role,
@@ -21,10 +23,14 @@ export default function BoardingPass({
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-lg max-h-[90vh] overflow-y-auto">
       {/* HEADER */}
-      <div className="bg-blue-600 text-white px-6 py-5">
+      <div className="bg-blue-600 text-white px-6 py-5 flex justify-around">
+        <button className="text-xl font-bold" onClick={onClose}><IoMdClose/></button>
+        <div>
         <h2 className="text-xl font-bold text-center">Event Boarding Pass</h2>
 
         <p className="text-xs opacity-90 text-center">{event}</p>
+        </div>
+        <button className="text-xl font-bold"><IoShareSocial/></button>
       </div>
 
       <div className="p-6 space-y-4">
@@ -148,7 +154,7 @@ export default function BoardingPass({
           <FiDownload />
           Download Pass
         </button>
-        <button onClick={onClose} className="px-8 border rounded-xl">
+        <button onClick={onClose} className="px-8 border rounded-xl bg-gray-200">
           Close
         </button>
       </div>

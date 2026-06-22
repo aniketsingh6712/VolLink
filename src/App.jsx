@@ -19,6 +19,7 @@ import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/Act
 import Tracker from "./Pages/Organisation/Tracking/Tracker";
 import VolunteerInvitations from "./Pages/Volunteer Invites/VolunteerInvitations";
 import EventStatus from "./Pages/Events Status/EventStatus";
+import VolunteerHome from "./Pages/Volunteer/Home/volunteerHome.page";
 function App() {
   return (
     <BrowserRouter>
@@ -40,8 +41,14 @@ function App() {
             </>
           } />
 
-
-        <Route path="/vol-dashboard" element=
+<Route path="/volunteer/dashboard" element=
+          {
+            <>
+              <Navbar />
+              <VolunteerHome />
+            </>
+          } />
+        <Route path="/volunteer/events" element=
           {
             <>
               <Navbar />
@@ -49,7 +56,7 @@ function App() {
             </>
           } />
 
-        <Route path="/my-events" element=
+        <Route path="/volunteer/my-events" element=
           {
             <>
               <Navbar />
@@ -57,7 +64,7 @@ function App() {
             </>
           } />
 
-        <Route path="/my-invites" element=
+        <Route path="/volunteer/invites" element=
           {
             <>
               <Navbar />
