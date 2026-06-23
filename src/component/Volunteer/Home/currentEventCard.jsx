@@ -149,9 +149,10 @@ export default function CurrentEventCard({
             py-3
             font-bold
             hover:bg-gray-200
+            flex flex-row gap-2 align-middle justify-center
             "
           >
-            👁 View details
+            <span><FiEye /></span> View details
           </button>
 
           <button

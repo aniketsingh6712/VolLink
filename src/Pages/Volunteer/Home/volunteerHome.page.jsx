@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-
+import EventDetailsModal from "../../../component/Volunteer/Home/EventDetailsModal";
 import CurrentEventCard from "../../../component/Volunteer/Home/currentEventCard";
 
 import UpcomingEventCard from "../../../component/Volunteer/Home/upcomingEventCard";
@@ -10,22 +10,65 @@ import BoardingPass from "../../../component/Event Status/EventPass";
 import VolunteerHeroSection from "../../../component/Volunteer/Home/heroSection";
 export default function VolunteerHome() {
     const [scannerOpen, setScannerOpen] = useState(false);
-    const [showPass, setShowPass] = useState(false);
+    const [modal, setModal] = useState(null);
+    // "pass" | "details" | null
+
+    const [selectedEvent, setSelectedEvent] =
+        useState(null);
     const volunteerRole = "ENTRY_VOLUNTEER";
- const volunteer = {
-    name: "authors-view",
-  };
+    const volunteer = {
+        name: "authors-view",
+    };
 
     const currentEvent = {
         id: 1,
 
         title: "Food Donation Drive",
 
-        date: "31 Oct 2024",
+        category: "Food & Community",
 
-        location: "Community Center",
+        organization: "Helping Hands NGO",
 
-        status: "Going on", // confirmed | completed
+        organizationEmail:
+            "contact@helpinghands.org",
+
+        organizationPhone:
+            "+91 9876543210",
+
+        manager: {
+            name: "Ananya Sharma",
+
+            email:
+                "ananya@helpinghands.org",
+
+            phone:
+                "+91 9988776655",
+        },
+
+        totalVolunteers: 42,
+
+        date: "31 Oct 2026",
+
+        time: "08:30 AM",
+
+        location:
+            "Downtown Community Center",
+
+        description:
+            "Help distribute food packages and coordinate volunteer check-ins for underprivileged communities.",
+
+        tasks: [
+            "Handle volunteer entry",
+            "Scan volunteer passes",
+            "Guide volunteers",
+            "Manage check-in & checkout",
+            "Coordinate with event manager",
+        ],
+
+        image:
+            "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c",
+
+        status: "completed",
 
         checkIn: "08:30 AM",
 
@@ -33,70 +76,229 @@ export default function VolunteerHome() {
 
         hours: "8.25",
 
-        role: "Entry Volunteer",
+        role:
+            "Entry Volunteer",
+        passId:
+            "BP-001-2026",
 
-        passId: "BP-001-2024",
+        passType:
+            "Assigned Pass",
     };
-   const upcomingEvents = [
-  {
-    id: 1,
-    title: "Tree Plantation Drive",
-    organizer: "Green Earth Foundation",
-    date: "10 Nov 2026",
-    time: "08:30 AM",
-    location: "Cubbon Park, Bengaluru",
-    passType: "Free Entry",
-    description:
-      "Join volunteers to plant trees, spread awareness, and make the city greener together.",
-    image:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b",
-  },
+    const upcomingEvents = [
+        {
+            id: 2,
 
-  {
-    id: 2,
-    title: "Community Health Camp",
-    organizer: "CarePlus NGO",
-    date: "18 Nov 2026",
-    time: "09:00 AM",
-    location: "Whitefield, Bengaluru",
-    passType: "Registration Required",
-    description:
-      "Free health checkups, doctor consultations, awareness sessions, and community support.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
-  },
+            title:
+                "Tree Plantation Drive",
 
-  {
-    id: 3,
-    title: "Youth Leadership Summit",
-    organizer: "Future Leaders Hub",
-    date: "22 Nov 2026",
-    time: "06:00 PM",
-    location: "Koramangala, Bengaluru",
-    passType: "VIP + General",
-    description:
-      "Interactive talks, networking opportunities, startup sessions, and leadership workshops.",
-    image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865",
-  },
-];
+            category:
+                "Environment",
+
+            organization:
+                "Green Earth Foundation",
+
+            organizationEmail:
+                "hello@greenearth.org",
+
+            organizationPhone:
+                "+91 9123456780",
+
+            manager: {
+                name:
+                    "Rohan Gupta",
+
+                email:
+                    "rohan@greenearth.org",
+
+                phone:
+                    "+91 9011111111"
+            },
+
+            totalVolunteers:
+                120,
+
+            date:
+                "10 Nov 2026",
+
+            time:
+                "08:30 AM",
+
+            location:
+                "Cubbon Park, Bengaluru",
+
+            passType:
+                "Free Entry",
+
+            status:
+                "confirmed",
+
+            description:
+                "Join volunteers to plant trees and restore green spaces across the city.",
+
+            tasks: [
+                "Plant trees",
+                "Guide visitors",
+                "Manage registrations",
+                "Support cleanup"
+            ],
+
+            image:
+                "https://images.unsplash.com/photo-1448375240586-882707db888b",
+        },
+
+        {
+            id: 3,
+
+            title:
+                "Community Health Camp",
+
+            category:
+                "Healthcare",
+
+            organization:
+                "CarePlus NGO",
+
+            organizationEmail:
+                "support@careplus.org",
+
+            organizationPhone:
+                "+91 9000002222",
+
+            manager: {
+                name:
+                    "Sneha Reddy",
+
+                email:
+                    "sneha@careplus.org",
+
+                phone:
+                    "+91 9988772211"
+            },
+
+            totalVolunteers:
+                65,
+
+            date:
+                "18 Nov 2026",
+
+            time:
+                "09:00 AM",
+
+            location:
+                "Whitefield, Bengaluru",
+
+            passType:
+                "Registration Required",
+
+            status:
+                "confirmed",
+
+            description:
+                "Provide free medical consultation and awareness programs.",
+
+            tasks: [
+                "Registration desk",
+                "Queue management",
+                "Volunteer support",
+                "Patient assistance"
+            ],
+
+            image:
+                "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+        },
+
+        {
+            id: 4,
+
+            title:
+                "Youth Leadership Summit",
+
+            category:
+                "Leadership",
+
+            organization:
+                "Future Leaders Hub",
+
+            organizationEmail:
+                "team@futureleaders.com",
+
+            organizationPhone:
+                "+91 9888776655",
+
+            manager: {
+                name:
+                    "Vikram Jain",
+
+                email:
+                    "vikram@futureleaders.com",
+
+                phone:
+                    "+91 9911223344"
+            },
+
+            totalVolunteers:
+                80,
+
+            date:
+                "22 Nov 2026",
+
+            time:
+                "06:00 PM",
+
+            location:
+                "Koramangala, Bengaluru",
+
+            passType:
+                "VIP + General",
+
+            status:
+                "confirmed",
+
+            description:
+                "Leadership sessions, networking, and startup collaboration.",
+
+            tasks: [
+                "Manage entry",
+                "Seat allocation",
+                "Speaker support",
+                "Registration desk"
+            ],
+
+            image:
+                "https://images.unsplash.com/photo-1511578314322-379afb476865",
+        }
+    ];
+    const openPass = (event) => {
+        setSelectedEvent(event);
+        setModal("pass");
+    };
+
+    const openDetails = (event) => {
+        setSelectedEvent(event);
+        setModal("details");
+    };
+
+    const closeModal = () => {
+        setSelectedEvent(null);
+        setModal(null);
+    };
     return (
         <div className="bg-[#F8FAFC]">
             <div className="max-w-7xl mx-auto px-6 py-10">
                 <VolunteerHeroSection user={volunteer} />
 
-               <CurrentEventCard
-    event={currentEvent}
+                <CurrentEventCard
+                    event={currentEvent}
 
-    onView={() => {
-        console.log("view details");
-    }}
+                    onView={() =>
+                        openDetails(currentEvent)
+                    }
 
-    onPass={() => {
-        setShowPass(true);
-    }}
-/>
-             
+                    onPass={() =>
+                        openPass(currentEvent)
+                    }
+                />
+
 
                 {volunteerRole === "ENTRY_VOLUNTEER" && (
                     <div
@@ -169,21 +371,30 @@ uppercase
                         Upcoming Events
                     </h2>
 
-                   <div
-  className="
+                    <div
+                        className="
   grid
   gap-6
   md:grid-cols-2
   lg:grid-cols-3
   "
->
-  {upcomingEvents.map((event) => (
-    <UpcomingEventCard
-      key={event.id}
-      event={event}
-    />
-  ))}
-</div>
+                    >
+                        {upcomingEvents.map((event) => (
+                            <UpcomingEventCard
+                                key={event.id}
+
+                                event={event}
+
+                                onView={() =>
+                                    openDetails(event)
+                                }
+
+                                onPass={() =>
+                                    openPass(event)
+                                }
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -192,17 +403,19 @@ uppercase
                 onClose={() => setScannerOpen(false)}
             />
             {
-                showPass && (
+                modal === "pass" &&
+                selectedEvent && (
+
                     <div
                         className="
 fixed
 inset-0
 z-50
 bg-black/50
-overflow-y-auto
 flex
 justify-center
 p-4
+overflow-y-auto
 "
                     >
 
@@ -217,36 +430,116 @@ my-auto
                             <BoardingPass
                                 volunteer="John Doe"
 
-                                role={currentEvent.role}
+                                role={
+                                    selectedEvent.role ||
+                                    "Volunteer"
+                                }
 
-                                event={currentEvent.title}
+                                event={
+                                    selectedEvent.title
+                                }
 
-                                status={currentEvent.status}
+                                status={
+                                    selectedEvent.status ||
+                                    "confirmed"
+                                }
 
-                                passId={currentEvent.passId}
+                                passId={
+                                    selectedEvent.passId ||
+                                    `BP-${selectedEvent.id}`
+                                }
 
-                                date={currentEvent.date}
+                                date={
+                                    selectedEvent.date
+                                }
 
-                                location={currentEvent.location}
+                                location={
+                                    selectedEvent.location
+                                }
 
-                                checkIn={currentEvent.checkIn}
+                                checkIn={
+                                    selectedEvent.checkIn
+                                }
 
-                                checkOut={currentEvent.checkOut}
+                                checkOut={
+                                    selectedEvent.checkOut
+                                }
 
-                                hoursWorked={currentEvent.hours}
+                                hoursWorked={
+                                    selectedEvent.hours
+                                }
 
-                                onClose={() => setShowPass(false)}
+                                onClose={
+                                    closeModal
+                                }
 
-                                onDownload={() => {
-                                    console.log("download pass");
-                                }}
+                                onDownload={() =>
+                                    console.log(
+                                        "download"
+                                    )
+                                }
                             />
 
                         </div>
-
                     </div>
-                )
-            }
+                )}
+
+            <EventDetailsModal
+                isOpen={
+                    modal === "details"
+                }
+
+                onClose={
+                    closeModal
+                }
+
+                event={
+                    selectedEvent
+                }
+            // event={{
+            //     title: currentEvent.title,
+
+            //     category: "Food & Community",
+
+            //     date: currentEvent.date,
+
+            //     location: currentEvent.location,
+
+            //     totalVolunteers: 42,
+
+            //     organization:
+            //         "Helping Hands NGO",
+
+            //     organizationEmail:
+            //         "contact@helpinghands.org",
+
+            //     organizationPhone:
+            //         "+91 9876543210",
+
+            //     manager: {
+            //         name:
+            //             "Ananya Sharma",
+
+            //         email:
+            //             "ananya@helpinghands.org",
+
+            //         phone:
+            //             "+91 9988776655",
+            //     },
+
+            //     tasks: [
+            //         "Handle volunteer entry",
+
+            //         "Scan volunteer passes",
+
+            //         "Guide volunteers",
+
+            //         "Mark check-in and checkout",
+
+            //         "Coordinate with manager",
+            //     ],
+            // }}
+            />
         </div>
     );
 }
