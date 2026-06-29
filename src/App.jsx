@@ -20,6 +20,9 @@ import Tracker from "./Pages/Organisation/Tracking/Tracker";
 import VolunteerInvitations from "./Pages/Volunteer Invites/VolunteerInvitations";
 import EventStatus from "./Pages/Events Status/EventStatus";
 import VolunteerHome from "./Pages/Volunteer/Home/volunteerHome.page";
+import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
+import ManagerMyEvents from "./Pages/Manager/ManagerMyEvent";
+import ManagerEventDetails from "./Pages/Manager/ManagerEventDetails";
 function App() {
   return (
     <BrowserRouter>
@@ -124,6 +127,10 @@ function App() {
 <Route path="/organization/profile" element={<><Navbar/><OrganizationProfile/></>} />
 <Route path="/organization/edit/application" element={<><Navbar/>< EditOrganizationApplication/></>} />
 <Route path="/organization/tracker" element={<><Navbar/><Tracker/></>} />
+
+<Route path="/organization/manager" element={<><Navbar/><ManagerDashboard/></>}/>
+<Route path="/organization/manager/myevents" element={<><Navbar/><ManagerMyEvents/></>}/>
+<Route path="/organization/manager/eventdetails" element={<><Navbar/><ManagerEventDetails/></>}/>
       </Routes>
       <ToastContainer
         position="top-right"
