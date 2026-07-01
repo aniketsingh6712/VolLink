@@ -4,7 +4,9 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { IoMdPin } from "react-icons/io";
 import { LuUsersRound } from "react-icons/lu";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const CurrentEventCard = ({ event }) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
 

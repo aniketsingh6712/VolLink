@@ -2,11 +2,11 @@ import React from "react";
 import WelcomeHeader from "../../component/Manager/Dashboard/welcomeHeader";
 // import QuickActions from "../../component/Manager/Dashboard/QuickActions";
 import CurrentEventCard from "../../component/Manager/Dashboard/CurrentEvent";
-import ManagerActions from "../../component/Manager/Dashboard/ManagerActions";
+
 import { currentEvent, quickActions } from "./Data/ManagerDashboardData";
 import LiveStats from "../../component/Manager/Dashboard/LiveStats";
 import ManagerAlerts from "../../component/Manager/Dashboard/ManagerAlerts";
-import VolunteerOverview from "../../component/Manager/Dashboard/Volunteer Overview/VolunteerOverView";
+
 const ManagerDashboard = () => {
     return (
         <div className="max-w-7xl mx-auto px-6 py-8">

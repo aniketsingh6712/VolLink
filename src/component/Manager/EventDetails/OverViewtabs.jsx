@@ -1,56 +1,33 @@
-import { useState } from "react";
+import EventHealth from "./EventHealth";
+import AttendanceOverview from "./AttendanceOverview";
+import TeamDistribution from "./TeamDistribution";
+import RecentActivity from "./RecentActivity";
 
-import EventHeader from "../../components/manager/eventDetails/EventHeader";
-import EventTabs from "../../components/manager/eventDetails/EventTabs";
+import ManagerAlerts from "../dashboard/ManagerAlerts";
 
-import OverviewTab from "../../components/manager/eventDetails/OverviewTab";
-import VolunteerTab from "../../components/manager/eventDetails/VolunteerTab";
-import AttendanceTab from "../../components/manager/eventDetails/AttendanceTab";
-import TimelineTab from "../../components/manager/eventDetails/TimelineTab";
-import TasksTab from "../../components/manager/eventDetails/TasksTab";
+const OverviewTab = () => {
 
-const ManagerEventDetails = () => {
+    return (
 
-    const [activeTab, setActiveTab] = useState("overview");
+        <div className="space-y-6">
 
-    const renderTab = () => {
+            <EventHealth />
 
-        switch(activeTab){
+            <div className="grid lg:grid-cols-2 gap-6">
 
-            case "overview":
-                return <OverviewTab/>;
+                <TeamDistribution />
 
-            case "volunteers":
-                return <VolunteerTab/>;
+                <AttendanceOverview />
 
-            case "attendance":
-                return <AttendanceTab/>;
+            </div>
 
-            case "timeline":
-                return <TimelineTab/>;
+            <div className="grid lg:grid-cols-2 gap-6">
 
-            case "tasks":
-                return <TasksTab/>;
+                <RecentActivity />
 
-            default:
-                return <OverviewTab/>;
+                <ManagerAlerts />
 
-        }
-
-    }
-
-    return(
-
-        <div className="space-y-8">
-
-            <EventHeader/>
-
-            <EventTabs
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-            />
-
-            {renderTab()}
+            </div>
 
         </div>
 
@@ -58,4 +35,4 @@ const ManagerEventDetails = () => {
 
 }
 
-export default ManagerEventDetails;
+export default OverviewTab;

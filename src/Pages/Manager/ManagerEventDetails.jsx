@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-import EventHeader from "../../components/manager/eventDetails/EventHeader";
-import EventTabs from "../../components/manager/eventDetails/EventTabs";
 
-import OverviewTab from "../../components/manager/eventDetails/OverviewTab";
-import VolunteerTab from "../../components/manager/eventDetails/VolunteerTab";
-import AttendanceTab from "../../components/manager/eventDetails/AttendanceTab";
-import TimelineTab from "../../components/manager/eventDetails/TimelineTab";
-import TasksTab from "../../components/manager/eventDetails/TasksTab";
+import EventHeader from "../../component/Manager/EventDetails/EventHeader"
+import EventTabs from "../../component/Manager/EventDetails/EventTabs";
+
+import OverviewTab from "../../component/Manager/EventDetails/OverviewTabs";
+import VolunteerTab from "../../component/Manager/EventDetails/VolunteerTab";
+import AttendanceTab from "../../component/Manager/EventDetails/AttendanceTab";
+import TimelineTab from "../../component/Manager/EventDetails/TimelineTab";
+import TasksTab from "../../component/Manager/EventDetails/TasksTab";
 
 const ManagerEventDetails = () => {
 
