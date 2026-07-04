@@ -1,12 +1,11 @@
 import AttendanceStatusBadge from "./AttendanceStatusBadge";
 
-const AttendanceRow=({
-
+const AttendanceRow = ({
     volunteer
-
-})=>{
-
-    return(
+, onOpen
+}) => {
+    
+    return (
 
         <tr className="border-t hover:bg-gray-50">
 
@@ -39,23 +38,12 @@ const AttendanceRow=({
             <td>
 
                 <button
-                    className="text-emerald-600 font-medium hover:underline"
+                    onClick={() => onOpen(volunteer)}
+                    className="text-emerald-600 hover:underline font-medium"
                 >
-
-                    {
-
-                        volunteer.status==="Checked Out"
-
-                        ?
-
-                        "View"
-
-                        :
-
-                        "Check Out"
-
-                    }
-
+                    {volunteer.status === "Checked Out"
+                        ? "View"
+                        : "Check Out"}
                 </button>
 
             </td>

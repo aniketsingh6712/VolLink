@@ -11,7 +11,7 @@ import {
 import VolunteerStatusBadge from "../EventDetails/volunteers/VolunteerStatusBadge";
 import VolunteerRoleBadge from "./VolunteerRoleBadge";
 import VolunteerActionMenu from "./VolunteerActionMenu";
-const VolunteerCard = ({ volunteer, onViewProfile }) => {
+const VolunteerCard = ({ volunteer, onViewProfile, onChangeRole }) => {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 p-6">
 
@@ -44,7 +44,7 @@ const VolunteerCard = ({ volunteer, onViewProfile }) => {
 
         </div>
 
-        <VolunteerActionMenu onViewProfile={onViewProfile} />
+        <VolunteerActionMenu onViewProfile={onViewProfile}  onChangeRole={() => onChangeRole(volunteer)} />
       </div>
 
       <div className="grid md:grid-cols-4 gap-6 mt-6">
@@ -119,6 +119,7 @@ const VolunteerCard = ({ volunteer, onViewProfile }) => {
 
       </div>
 
+    
     </div>
   );
 };

@@ -5,7 +5,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-const VolunteerInfoCard = ({ volunteer }) => {
+const VolunteerInfoCard = ({ volunteer}) => {
  
   return (
     <div className="bg-white border rounded-2xl p-6 shadow-sm">

@@ -37,23 +37,64 @@ const volunteers = [
 ];
 import { useState } from "react";
 import VolunteerProfileDrawer from "./VolunteerProfileDrawer";
+import ChangeRoleModal from "./changeRoleModal";
 const VolunteerDirectory = () => {
-    const [selectedVolunteer, setSelectedVolunteer] = useState(null);
+const [profileVolunteer, setProfileVolunteer] = useState(null);
 
+const [roleVolunteer, setRoleVolunteer] = useState(null);
+  
+  const [changeRoleOpen, setChangeRoleOpen] = useState(false);
+
+  const [role, setRole] = useState("");
+
+  const [reason, setReason] = useState("");
+
+
+  const handleChangeRole = (volunteer) => {
+    console.log("Change Role clicked for:", volunteer);
+    setRoleVolunteer(volunteer);
+
+    setRole(volunteer.role);
+
+    setReason("");
+
+    setChangeRoleOpen(true);
+
+  };
   return (
     <div className="space-y-5">
       {volunteers.map((volunteer) => (
         <VolunteerCard
           key={volunteer.id}
           volunteer={volunteer}
-          onViewProfile={() => setSelectedVolunteer(volunteer)}
+          onViewProfile={() => setProfileVolunteer(volunteer)}
+          onChangeRole={handleChangeRole}
         />
       ))}
 
       <VolunteerProfileDrawer
-  open={!!selectedVolunteer}
-  volunteer={selectedVolunteer}
-  onClose={() => setSelectedVolunteer(null)}
+        open={!!profileVolunteer}
+        volunteer={profileVolunteer}
+        onClose={() => setProfileVolunteer(null)}
+      />
+
+      <ChangeRoleModal
+    open={changeRoleOpen}
+    volunteer={roleVolunteer}
+    role={role}
+    setRole={setRole}
+    reason={reason}
+    setReason={setReason}
+    onClose={() => setChangeRoleOpen(false)}
+    onSave={() => {
+
+        console.log(role);
+
+        console.log(reason);
+
+        setChangeRoleOpen(false);
+
+    }}
 />
     </div>
   );

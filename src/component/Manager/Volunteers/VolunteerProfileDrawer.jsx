@@ -2,13 +2,14 @@ import VolunteerInfoCard from "./volunteerProfile/VolunteerInfoCard";
 import VolunteerAttendanceCard from "./volunteerProfile/VolunteerAttendanceCard";
 import VolunteerSkillsCard from "./volunteerProfile/VolunteerSkillsCard";
 import VolunteerAssignedTasks from "./volunteerProfile/VolunteerAssignedTasks";
-
+import { FaTimes } from "react-icons/fa";
 const VolunteerProfileDrawer = ({
     open,
-    onClose
+    onClose,
+    volunteer
 }) => {
 
-    return(
+    return (
 
         <>
 
@@ -22,7 +23,7 @@ const VolunteerProfileDrawer = ({
                             className="absolute right-0 top-0 w-full max-w-lg h-full bg-white shadow-2xl overflow-y-auto"
                         >
 
-                            <div className="sticky top-0 bg-white border-b p-6 flex justify-between">
+                            <div className="sticky top-10 bg-white border-b p-6 flex justify-between">
 
                                 <h2 className="text-2xl font-bold">
 
@@ -30,25 +31,24 @@ const VolunteerProfileDrawer = ({
 
                                 </h2>
 
-                                <button
-                                    onClick={onClose}
-                                >
 
-                                    ✕
-
-                                </button>
+                                
+                                    <button onClick={onClose} className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition">
+                                        Close
+                                    </button>
+                               
 
                             </div>
 
                             <div className="p-6 space-y-6">
 
-                                <VolunteerInfoCard/>
+                                <VolunteerInfoCard volunteer={volunteer} />
 
-                                <VolunteerAttendanceCard/>
+                                <VolunteerAttendanceCard />
 
-                                <VolunteerSkillsCard/>
+                                <VolunteerSkillsCard />
 
-                                <VolunteerAssignedTasks/>
+                                <VolunteerAssignedTasks />
 
                             </div>
 

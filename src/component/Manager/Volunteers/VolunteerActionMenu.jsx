@@ -43,7 +43,7 @@ const menuItems = [
     },
 ];
 
-const VolunteerActionMenu = ({ onViewProfile }) => {
+const VolunteerActionMenu = ({ onViewProfile ,  onChangeRole }) => {
     const [open, setOpen] = useState(false);
     const menuRef = useRef(null);
 
@@ -94,7 +94,7 @@ const VolunteerActionMenu = ({ onViewProfile }) => {
                                     break;
 
                                 case "Change Role":
-                                    console.log("Change Role");
+                                    onChangeRole?.();
                                     break;
 
                                 case "Mark Absent":
