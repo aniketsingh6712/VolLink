@@ -24,6 +24,7 @@ import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
 import ManagerMyEvents from "./Pages/Manager/ManagerMyEvent";
 import ManagerEventDetails from "./Pages/Manager/ManagerEventDetails";
 import ManagerVolunteers from "./Pages/Manager/Manager_Volunteer";
+import ManagerLiveOperations from "./Pages/Manager/ManagerLiveOperations";
 function App() {
   return (
     <BrowserRouter>
@@ -133,6 +134,7 @@ function App() {
 <Route path="/organization/manager/myevents" element={<><Navbar/><ManagerMyEvents/></>}/>
 <Route path="/organization/manager/eventdetails" element={<><Navbar/><ManagerEventDetails/></>}/>
 <Route path="/organization/manager/volunteers" element={<><Navbar/><ManagerVolunteers/></>}/>
+<Route path="/organization/manager/liveoperations" element={<><Navbar/><ManagerLiveOperations/></>}/>
       </Routes>
       <ToastContainer
         position="top-right"
