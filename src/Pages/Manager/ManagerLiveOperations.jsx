@@ -3,7 +3,7 @@ import AnalyticsCards from "../../component/Manager/LiveOperations/AnalyticsCard
 import OperationalAreaGrid from "../../component/Manager/LiveOperations/OperationalAreaGrid";
 import AvailableVolunteerSidebar from "../../component/Manager/LiveOperations/AvailableVolunteerSidebar/AvailableVolunteerSidebar";
 import RecentHighlights from "../../component/Manager/LiveOperations/RecentHighlights.jsx/RecentHighlights";
-
+import EventOverview from "../../component/Manager/LiveOperations/EventOverview/EventOverview";
 const ManagerLiveOperations = () => {
   return (
     <div className="min-h-screen bg-slate-50">
@@ -13,7 +13,7 @@ const ManagerLiveOperations = () => {
         {/* Header */}
 
         <ReportHeader />
-
+    <EventOverview />
         {/* Analytics */}
 
         <AnalyticsCards />

@@ -2,6 +2,8 @@ import AvailableVolunteerCard from "./AvailableVolunteerCard";
 
 const AvailableVolunteerList = ({
   volunteers,
+  selectedVolunteers,
+  onToggle
 }) => {
 
   return (
@@ -10,11 +12,26 @@ const AvailableVolunteerList = ({
 
       {
 
-        volunteers.map((volunteer)=>(
+        volunteers.map((volunteer) => (
 
           <AvailableVolunteerCard
+
             key={volunteer.id}
+
             volunteer={volunteer}
+
+            checked={
+
+              selectedVolunteers.includes(
+
+                volunteer.id
+
+              )
+
+            }
+
+            onToggle={onToggle}
+
           />
 
         ))

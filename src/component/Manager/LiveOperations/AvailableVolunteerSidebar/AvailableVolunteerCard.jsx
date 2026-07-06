@@ -5,13 +5,57 @@ import {
 
 const AvailableVolunteerCard = ({
   volunteer,
+  checked,
+  onToggle
 }) => {
 
   return (
 
     <div className="border-b p-5 hover:bg-slate-50 transition cursor-pointer">
+      <div
+
+        className={`
+
+        border-b
+
+        p-5
+
+        cursor-pointer
+
+        transition
+
+        ${checked
+
+            ?
+
+            "bg-blue-50"
+
+            :
+
+            "hover:bg-slate-50"
+
+          }
+
+    `}
+
+        onClick={() => onToggle(volunteer.id)}
+
+      ></div>
 
       <div className="flex gap-4">
+        <input
+
+          type="checkbox"
+
+          checked={checked}
+
+          onChange={() => onToggle(volunteer.id)}
+
+          onClick={(e) => e.stopPropagation()}
+
+          className="mt-4 w-4 h-4"
+
+        />
 
         <img
           src={volunteer.avatar}
@@ -29,7 +73,7 @@ const AvailableVolunteerCard = ({
 
           <div className="flex items-center gap-2 text-sm text-gray-500 mt-2">
 
-            <FaArrowRight className="text-xs"/>
+            <FaArrowRight className="text-xs" />
 
             Released from
 
@@ -43,7 +87,7 @@ const AvailableVolunteerCard = ({
 
           <div className="flex items-center gap-2 text-xs text-gray-400 mt-2">
 
-            <FaClock/>
+            <FaClock />
 
             {volunteer.releasedAt}
 
