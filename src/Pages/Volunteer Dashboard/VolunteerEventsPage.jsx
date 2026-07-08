@@ -3,7 +3,7 @@
 import { useState } from "react";
 import EventCard from "../../component/Volunteer Dashboard/EventCard";
 import SearchFilter from "../../component/Volunteer Dashboard/SearchFilter";
-export default function Dashboard() {
+export default function VolunteerEventsPage() {
   const [selected, setSelected] = useState("");
 
   const events = [
