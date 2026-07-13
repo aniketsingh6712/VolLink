@@ -218,7 +218,7 @@ export default function VolunteerHome() {
                         openPass(currentEvent)
                     }
                 />
-
+                
                 <EventUpdates/>
                 {volunteerRole === "ENTRY_VOLUNTEER" && (
                     <div

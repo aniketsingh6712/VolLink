@@ -27,6 +27,7 @@ import ManagerVolunteers from "./Pages/Manager/Manager_Volunteer";
 import ManagerLiveOperations from "./Pages/Manager/ManagerLiveOperations";
 import ManagerCommunicationPage from "./Pages/Manager/ManagerCommunicationPage";
 import VolunteerEventsPage from "./Pages/Volunteer Dashboard/VolunteerEventsPage";
+import StaffManagementPage from "./Pages/Organisation/Staff management/StaffManagementPage";
 function App() {
   return (
     <BrowserRouter>
@@ -131,6 +132,9 @@ function App() {
         <Route path="/organization/profile" element={<><Navbar /><OrganizationProfile /></>} />
         <Route path="/organization/edit/application" element={<><Navbar />< EditOrganizationApplication /></>} />
         <Route path="/organization/tracker" element={<><Navbar /><Tracker /></>} />
+        <Route path="/organization/staff" element={<><Navbar /><StaffManagementPage /></>} />
+
+
 
         <Route path="/organization/manager" element={<><Navbar /><ManagerDashboard /></>} />
         <Route path="/organization/manager/myevents" element={<><Navbar /><ManagerMyEvents /></>} />
