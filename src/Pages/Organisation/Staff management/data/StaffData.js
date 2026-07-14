@@ -33,10 +33,10 @@ const staffData = [
     role: "Event Manager",
     email: "amit@gmail.com",
     phone: "+91 9876543212",
-   workload: {
-    active: 0,
-    events: [],
-},
+    workload: {
+      active: 0,
+      events: [],
+    },
     status: "Available",
     joined: "05 Jan 2025",
     avatar: "https://i.pravatar.cc/150?img=18",

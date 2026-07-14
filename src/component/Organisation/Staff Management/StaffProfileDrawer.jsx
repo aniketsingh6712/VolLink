@@ -161,19 +161,19 @@ const StaffProfileDrawer = ({
                           </h4> */}
                           <button
 
-    className="font-semibold text-blue-600 hover:text-blue-800"
+                            className="font-semibold text-blue-600 hover:text-blue-800"
 
-    onClick={() => {
+                            onClick={() => {
 
-        console.log(event);
+                              console.log(event);
 
-    }}
+                            }}
 
->
+                          >
 
-    {event}
+                            {event}
 
-</button>
+                          </button>
 
                           <p className="text-sm text-gray-500">
 

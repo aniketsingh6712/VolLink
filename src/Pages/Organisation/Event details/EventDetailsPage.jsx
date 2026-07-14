@@ -9,7 +9,9 @@ import { Section } from "../../../component/Organisation/Event details/Section";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "../../../utils/supabase";
-
+import ManagerAssignmentCard from "../../../component/Organisation/Event details/Action Modal/ManagerAssignmentCard";
+import AssignManagerModal from "../../../component/Organisation/Event details/Action Modal/AssignManagerModal";
+import managers from "../../../component/Organisation/Event details/Data/managerData";
 export default function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
@@ -17,13 +19,13 @@ export default function EventDetails() {
   const [approved, setApproved] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  // for the manager
+  const [selectedManager, setSelectedManager] = useState(null);
+  const [openAssignManager, setOpenAssignManager] = useState(false);
 
 
   useEffect(() => {
-
     fetchEventDetails();
-
   }, []);
 
   const fetchEventDetails = async () => {
@@ -160,7 +162,7 @@ export default function EventDetails() {
         )
       )
       : 0;
-      const isCompleted = event.status === "COMPLETED";
+  const isCompleted = event.status === "COMPLETED";
   return (
     <div className="bg-[#F9FAFB] min-h-screen max-w-7xl mx-auto px-6 md:px-12 py-8">
 
@@ -242,19 +244,19 @@ export default function EventDetails() {
                 </p>
                 <div className="mt-2">
 
-  <span className={`
+                  <span className={`
     px-3 py-1 rounded-full text-xs font-medium
 
     ${event.status === "ACTIVE"
-      ? "bg-green-100 text-green-700"
-      : "bg-yellow-100 text-yellow-700"}
+                      ? "bg-green-100 text-green-700"
+                      : "bg-yellow-100 text-yellow-700"}
   `}>
 
-    {event.status}
+                    {event.status}
 
-  </span>
+                  </span>
 
-</div>
+                </div>
 
               </div>
 
@@ -331,6 +333,14 @@ export default function EventDetails() {
             </div>
 
           </div>
+          <div className="mt-6">
+
+            <ManagerAssignmentCard
+              manager={selectedManager}
+              onAssign={() => setOpenAssignManager(true)}
+            />
+
+          </div>
         </div>
 
         {/* SEARCH */}
@@ -344,49 +354,49 @@ export default function EventDetails() {
           </div>
         </div>
 
-        
-       {/* PENDING */}
-{!isCompleted && (
 
-  <div className="px-6 py-4">
+        {/* PENDING */}
+        {!isCompleted && (
 
-    <Section
-      title={`Pending Applications (${pending.length})`}
-    >
+          <div className="px-6 py-4">
 
-      {pending.length > 0 ? (
+            <Section
+              title={`Pending Applications (${pending.length})`}
+            >
 
-        pending.map((item, i) => (
-          <UserRow
-            key={i}
-            user={item}
-            type="pending"
-          />
-        ))
+              {pending.length > 0 ? (
 
-      ) : (
+                pending.map((item, i) => (
+                  <UserRow
+                    key={i}
+                    user={item}
+                    type="pending"
+                  />
+                ))
 
-        <EmptyState
-          title="No Pending Applications"
-          subtitle="No volunteers have applied yet."
-        />
+              ) : (
 
-      )}
+                <EmptyState
+                  title="No Pending Applications"
+                  subtitle="No volunteers have applied yet."
+                />
 
-    </Section>
+              )}
 
-  </div>
-)}
+            </Section>
+
+          </div>
+        )}
 
         {/* APPROVED */}
         <div className="px-6 pb-6">
 
           <Section
-           title={
-  isCompleted
-    ? `Event Volunteers (${approved.length})`
-    : `Approved Volunteers (${approved.length})`
-}
+            title={
+              isCompleted
+                ? `Event Volunteers (${approved.length})`
+                : `Approved Volunteers (${approved.length})`
+            }
           >
 
             {approved.length > 0 ? (
@@ -413,6 +423,19 @@ export default function EventDetails() {
         </div>
 
       </div>
+
+      <AssignManagerModal
+        open={openAssignManager}
+        managers={managers}
+        onClose={() => setOpenAssignManager(false)}
+        onAssign={(id) => {
+          const manager = managers.find(m => m.id === id);
+          setSelectedManager(manager);
+          setOpenAssignManager(false);
+
+        }}
+
+      />
     </div>
   );
 }

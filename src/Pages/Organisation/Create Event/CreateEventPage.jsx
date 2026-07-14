@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import OrganizationVerificationGuard from "../verification/OrganizationVerificationGuard";
 import { toast } from "react-toastify";
 import { supabase } from "../../../utils/supabase";
+import VolunteerPositionsStep from "../../../component/Organisation/create Event/VolunteerPositionStep";
 export default function CreateEventPage() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
@@ -13,7 +14,7 @@ export default function CreateEventPage() {
     org: "",
     description: "",
     category: "",
-    needed: "",
+    positions: [],
     startDate: "",
     endDate: "",
     hours: "",
@@ -24,7 +25,7 @@ export default function CreateEventPage() {
     email: "",
     eventImage: null,
     eventImagePreview: "",
-    monetary_benefit:"",
+    monetary_benefit: "",
   });
   // HANDLE CHANGE
   const handleChange = (e) =>
@@ -85,49 +86,49 @@ export default function CreateEventPage() {
         .select("id")
         .eq("id", user.id)
         .single();
-        if (profileError){
-          navigate("/login");
-        }
-        const { data: orgProfileData, error: orgProfileError } = await supabase
+      if (profileError) {
+        navigate("/login");
+      }
+      const { data: orgProfileData, error: orgProfileError } = await supabase
         .from("organization_profiles")
         .select("id")
         .eq("user_id", profileData.id)
         .single();
 
-        if (orgProfileError){
-          navigate("/login");
-        }
+      if (orgProfileError) {
+        navigate("/login");
+      }
 
 
       // INSERT EVENT
       const { data: eventData, error: eventError } = await supabase
-  .from("events")
-  .insert([
-    {
-      organization_id: orgProfileData.id,
-      title: form.title,
-      description: form.description,
-      category: form.category,
-      people_needed: Number(form.needed),
-      start_date: form.startDate,
-      end_date: form.endDate,
-      work_hours: form.hours,
-      location: form.location,
-      benefits: form.benefits,
-      contact_phone: form.contact1,
-      contact_email: form.email,
-      image_url: imageUrl,
-      monetary_incentive: Number(form.monetary_benefit) || 0,
-    },
-  ])
-  .select()
-  .single();
+        .from("events")
+        .insert([
+          {
+            organization_id: orgProfileData.id,
+            title: form.title,
+            description: form.description,
+            category: form.category,
+            people_needed: Number(form.needed),
+            start_date: form.startDate,
+            end_date: form.endDate,
+            work_hours: form.hours,
+            location: form.location,
+            benefits: form.benefits,
+            contact_phone: form.contact1,
+            contact_email: form.email,
+            image_url: imageUrl,
+            monetary_incentive: Number(form.monetary_benefit) || 0,
+          },
+        ])
+        .select()
+        .single();
 
-  console.log("eventData", eventData.id);
+      console.log("eventData", eventData.id);
 
       if (eventError) throw eventError;
 
-      const { error: expectationError }  = await supabase.from("events_task").insert(
+      const { error: expectationError } = await supabase.from("events_task").insert(
         [
           {
             event_id: eventData.id,
@@ -135,7 +136,7 @@ export default function CreateEventPage() {
           }
         ]
       );
-      if(expectationError) throw expectationError;
+      if (expectationError) throw expectationError;
       toast.success("Event created successfully 🚀");
 
       setTimeout(() => {
@@ -152,23 +153,27 @@ export default function CreateEventPage() {
   const steps = [
     {
       title: "Event Basics",
-      subtitle: "Name, category, and location",
+      subtitle: "Name and description",
     },
     {
-      title: "Event Timeline",
-      subtitle: "Dates and volunteer capacity",
+      title: "Timeline",
+      subtitle: "Dates and location",
     },
     {
-      title: "Event Details",
-      subtitle: "Description and benefits",
+      title: "Volunteer Positions",
+      subtitle: "Create volunteer positions",
     },
     {
-      title: "Contact & Media",
-      subtitle: "Contact info and image",
+      title: "Benefits",
+      subtitle: "Benefits and expectations",
     },
     {
-      title: "Review & Submit",
-      subtitle: "Review and create event",
+      title: "Contact",
+      subtitle: "Contact and banner",
+    },
+    {
+      title: "Review",
+      subtitle: "Publish event",
     },
   ];
 
@@ -191,7 +196,6 @@ export default function CreateEventPage() {
 
       if (
         !form.category ||
-        !form.needed ||
         !form.startDate ||
         !form.endDate ||
         !form.hours.trim() ||
@@ -211,7 +215,7 @@ export default function CreateEventPage() {
     }
 
     // STEP 3
-    if (step === 3) {
+    if (step === 4) {
 
       if (
         !form.benefits.trim()
@@ -241,7 +245,7 @@ export default function CreateEventPage() {
       }
     }
     // STEP 4
-    if (step === 4) {
+    if (step === 5) {
       if (
         !form.contact1.trim() ||
         !form.email.trim()
@@ -263,9 +267,9 @@ export default function CreateEventPage() {
 
   //min start date for the event
   const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-const minStartDate =
-  tomorrow.toISOString().split("T")[0];
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minStartDate =
+    tomorrow.toISOString().split("T")[0];
   return (
     <div className="bg-[#F9FAFB] min-h-screen max-w-5xl mx-auto px-6 py-8">
       <OrganizationVerificationGuard>
@@ -459,7 +463,7 @@ const minStartDate =
                 </div>
 
                 {/* PEOPLE NEEDED */}
-                <div>
+                {/* <div>
                   <label className="text-sm font-medium text-gray-700">
                     Volunteers Needed *
                   </label>
@@ -477,7 +481,7 @@ const minStartDate =
                   <p className="text-xs text-gray-400 mt-1">
                     Total volunteers required
                   </p>
-                </div>
+                </div> */}
 
                 {/* START DATE */}
                 <div>
@@ -553,9 +557,24 @@ const minStartDate =
               <NavButtons setStep={setStep} prev={1} next={3} validateStep={validateStep} />
             </div>
           )}
-
           {/* STEP 3 */}
-          {step === 3 && (
+          {step === 3 && (<div className="spacey-6">
+            <VolunteerPositionsStep
+              form={form}
+              setForm={setForm}
+              setStep={setStep}
+              validateStep={validateStep}
+            />
+            <NavButtons
+              setStep={setStep}
+              prev={2}
+              next={4}
+              validateStep={validateStep}
+            />
+
+          </div>)}
+          {/* STEP 4 */}
+          {step === 4 && (
             <div className="space-y-6">
               <h2 className="text-xl font-bold">Benefits & Expectations</h2>
 
@@ -577,7 +596,7 @@ const minStartDate =
                 <div className="text-gray-400 mt-1 flex items-center gap-1">
                   <span className="font-bold">₹</span>
                   <input type="number" placeholder="0" min="0" className="input mt-2" onChange={handleChange}
-                  value={form.monetary_benefit}
+                    value={form.monetary_benefit}
                     name="monetary_benefit"
 
                   />
@@ -607,9 +626,6 @@ const minStartDate =
                     + Add
                   </button>
                 </div>
-
-
-
                 <div className="space-y-3">
                   {(form.expectations || []).map((item, index) => (
                     <div
@@ -656,8 +672,8 @@ const minStartDate =
               <NavButtons setStep={setStep} prev={2} next={4} validateStep={validateStep} />
             </div>
           )}
-          {/* STEP 4 */}
-          {step === 4 && (
+          {/* STEP 5 */}
+          {step === 5 && (
             <div className="space-y-5">
               <h2 className="text-xl font-bold">Contact Details</h2>
 
@@ -730,8 +746,8 @@ const minStartDate =
             </div>
           )}
 
-          {/* STEP 5 */}
-          {step === 5 && (
+          {/* STEP 6 */}
+          {step === 6 && (
             <div className="space-y-5">
               <h2 className="text-xl font-bold">Review & Publish</h2>
 
