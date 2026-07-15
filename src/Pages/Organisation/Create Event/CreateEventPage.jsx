@@ -270,6 +270,12 @@ export default function CreateEventPage() {
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minStartDate =
     tomorrow.toISOString().split("T")[0];
+
+  // total volunteer count
+  const totalVolunteers = form.positions.reduce(
+    (sum, position) => sum + Number(position.volunteersNeeded || 0),
+    0
+  );
   return (
     <div className="bg-[#F9FAFB] min-h-screen max-w-5xl mx-auto px-6 py-8">
       <OrganizationVerificationGuard>
@@ -669,7 +675,7 @@ export default function CreateEventPage() {
                 </div>
               </div>
 
-              <NavButtons setStep={setStep} prev={2} next={4} validateStep={validateStep} />
+              <NavButtons setStep={setStep} prev={3} next={5} validateStep={validateStep} />
             </div>
           )}
           {/* STEP 5 */}
@@ -742,29 +748,98 @@ export default function CreateEventPage() {
 
                 </div>
               </div>
-              <NavButtons setStep={setStep} prev={3} next={5} validateStep={validateStep} />
+              <NavButtons setStep={setStep} prev={4} next={6} validateStep={validateStep} />
             </div>
           )}
 
           {/* STEP 6 */}
           {step === 6 && (
-            <div className="space-y-5">
-              <h2 className="text-xl font-bold">Review & Publish</h2>
+            // <div className="space-y-5">
+            //   <h2 className="text-xl font-bold">Review & Publish</h2>
 
-              <div className="bg-gray-50 p-4 rounded-xl text-sm space-y-2">
-                <p>
-                  <b>{form.title}</b>
-                </p>
-                <p>{form.description}</p>
-                <p>📍 {form.location}</p>
-                <p>
-                  📅 {form.startDate} - {form.endDate}
-                </p>
-                <p>👥 {form.needed} volunteers needed</p>
+            //   <div className="bg-gray-50 p-4 rounded-xl text-sm space-y-2">
+            //     <p>
+            //       <b>{form.title}</b>
+            //     </p>
+            //     <p>{form.description}</p>
+            //     <p>📍 {form.location}</p>
+            //     <p>
+            //       📅 {form.startDate} - {form.endDate}
+            //     </p>
+            //     <p>👥 {form.needed} volunteers needed</p>
+            //   </div>
+
+            //   <div className="flex gap-3">
+            //     <button onClick={() => setStep(5)} className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition">
+            //       Back
+            //     </button>
+
+            //     <button onClick={handleCreateEvent} className="btn-primary">
+            //       Publish Event 🚀
+            //     </button>
+            //   </div>
+            // </div>
+            <div className="space-y-6">
+              {/* Event Summary */}
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <h2 className="text-xl font-bold">Review & Publish</h2>
+                <div className="space-y-3 text-sm">
+                  <p>
+                    <strong>Title:</strong> {form.title}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {form.description}
+                  </p>
+                  <p>
+                    <strong>Category:</strong> {form.category}
+                  </p>
+                  <p>
+                    <strong>Location:</strong> {form.location}
+                  </p>
+                  <p>
+                    <strong>Date:</strong> {form.startDate} - {form.endDate}
+                  </p>
+                  <p>
+                    <strong>Work Hours:</strong> {form.hours}
+                  </p>
+                </div>
+              </div>
+              {/* Volunteer Positions */}
+              <div className="bg-blue-50 rounded-2xl border border-blue-100 p-6">
+                <div className="flex justify-between items-center mb-5">
+                  <h3 className="text-lg font-semibold">
+                    Volunteer Positions
+                  </h3>
+                  <span className="bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold">
+                    {totalVolunteers} Volunteers
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {
+                    form.positions.map(position => (
+                      <div
+                        key={position.id}
+                        className="flex justify-between items-center bg-white rounded-xl border p-4"
+                      >
+                        <div>
+                          <h4 className="font-semibold">
+                            {position.title}
+                          </h4>
+                          <p className="text-sm text-gray-500 mt-1">
+                            {position.description}
+                          </p>
+                        </div>
+                        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                          {position.volunteersNeeded} Needed
+                        </span>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
 
               <div className="flex gap-3">
-                <button onClick={() => setStep(4)} className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition">
+                <button onClick={() => setStep(5)} className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition">
                   Back
                 </button>
 

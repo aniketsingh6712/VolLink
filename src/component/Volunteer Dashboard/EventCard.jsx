@@ -6,6 +6,7 @@ import { FaUtensils, FaBookOpen, FaLeaf, FaHeartbeat, FaUsers } from "react-icon
 import { IoIosCheckmark } from "react-icons/io";
 import { useState } from "react";
 import ApplyModal from "./ViewAndApply";
+
 export default function EventCard({ event }) {
       const categoryConfig = {
     "Food & Hunger": {
@@ -31,12 +32,41 @@ export default function EventCard({ event }) {
   };
 
   const [showApply, setShowApply] = useState(false);
-  event.work=[
-    "Collect plastic waste from shoreline",
-    "Segregate recyclable materials",
-    "Assist team leaders in cleanup coordination",
-    "Spread awareness among locals",
-  ];
+ event.positions = [
+
+    {
+        id:1,
+        title:"Registration Volunteer",
+        description:"Handle attendee registration and welcome desk.",
+        needed:5,
+        applied:2,
+    },
+
+    {
+        id:2,
+        title:"Parking Volunteer",
+        description:"Guide visitors and manage vehicle parking.",
+        needed:8,
+        applied:4,
+    },
+
+    {
+        id:3,
+        title:"Cleanup Team Volunteer",
+        description:"Collect and segregate waste from the venue.",
+        needed:20,
+        applied:15,
+    },
+
+    {
+        id:4,
+        title:"Medical Support Volunteer",
+        description:"Assist medical staff and first aid support.",
+        needed:7,
+        applied:1,
+    }
+
+];
   event.hours="4-5";
   const currentCategory = categoryConfig[event.category] || {
     icon: "📌",

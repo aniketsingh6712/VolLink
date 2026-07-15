@@ -7,7 +7,7 @@ export default function Modal({ isOpen, onClose, children }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
 
       {/* Modal Box */}
-      <div className="bg-white w-full max-w-lg rounded-2xl shadow-xl p-6 relative animate-fadeIn">
+      <div className="bg-white w-full max-w-4xl rounded-2xl shadow-xl p-6 relative animate-fadeIn">
 
         {/* Close Button */}
         <button
