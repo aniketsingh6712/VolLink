@@ -28,6 +28,7 @@ import ManagerLiveOperations from "./Pages/Manager/ManagerLiveOperations";
 import ManagerCommunicationPage from "./Pages/Manager/ManagerCommunicationPage";
 import VolunteerEventsPage from "./Pages/Volunteer Dashboard/VolunteerEventsPage";
 import StaffManagementPage from "./Pages/Organisation/Staff management/StaffManagementPage";
+import AssignedEventApplications from "./Pages/Manager/AssignedEventApplications";
 function App() {
   return (
     <BrowserRouter>
@@ -142,6 +143,7 @@ function App() {
         <Route path="/organization/manager/volunteers" element={<><Navbar /><ManagerVolunteers /></>} />
         <Route path="/organization/manager/liveoperations" element={<><Navbar /><ManagerLiveOperations /></>} />
         <Route path="/organization/manager/announcement" element={<><Navbar /><ManagerCommunicationPage /></>} />
+        <Route path="/organization/manager/eventapplication" element={<><Navbar /><AssignedEventApplications /></>} />
       </Routes>
       <ToastContainer
         position="top-right"
