@@ -1,4 +1,4 @@
-import ActivityTimeline from "./timeline/ActivityTimeline";
+import ActivityTimeline from "./components/ActivityTimeline/ActivityTimeline";
 
 const TimelineTab = () => {
 

@@ -7,7 +7,7 @@ import { currentEvent} from "../Data/managerDashboardData"
 import LiveStats from "./components/Stats/LiveStats";
 import Alerts from "../common/Alerts/Alerts";
 
-const ManagerDashboard = () => {
+const Dashboard = () => {
     return (
         <div className="max-w-7xl mx-auto px-6 py-8">
 
@@ -23,4 +23,4 @@ const ManagerDashboard = () => {
     );
 };
 
-export default ManagerDashboard;
+export default Dashboard;

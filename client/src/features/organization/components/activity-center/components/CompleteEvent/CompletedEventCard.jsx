@@ -2,10 +2,10 @@
 import { FiSend } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
 import { useState } from "react";
-import SendInviteModal from "./SendInviteModal";
-import SendMessageModal from "./MessageModal";
-import ViewAllVolunteer from "./ViewAllVolunteer";
-export default function CompletedEventCard({ event, availableEvents = [] }) {
+import SendInviteModal from "./components/SendInvite/SendInviteModal";
+import SendMessageModal from "../Message/MessageModal";
+import ViewAllVolunteer from "./components/ViewVolunteer/ViewAllVolunteer";
+export default function CompletedEvent({ event, availableEvents = [] }) {
 
   const participationPercent = Math.round(
     (event.selectedVolunteers / event.totalVolunteers) * 100

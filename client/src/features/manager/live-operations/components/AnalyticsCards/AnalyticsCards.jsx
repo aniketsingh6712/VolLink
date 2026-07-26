@@ -5,7 +5,7 @@ import {
   FaRandom,
 } from "react-icons/fa";
 
-import AnalyticsCard from "./AnalyticsCard";
+import AnalyticsCard from "./component/AnalyticsCard";
 
 const analytics = [
   {

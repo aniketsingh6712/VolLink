@@ -1,7 +1,7 @@
-import VolunteerTableHeader from "./VolunteerTableHeader";
-import VolunteerSection from "./VolunteerSection";
+import VolunteerTableHeader from "./components/VolunteerTableHeader";
+import VolunteerSection from "./components/VolunteerSection";
 import { useState } from "react";
-import ReleaseToolbar from "./ReleaseToolBar";
+import ReleaseToolbar from "./components/ReleaseToolBar";
 const activeVolunteers = [
   {
     id: 1,
@@ -41,7 +41,7 @@ const checkedOutVolunteers = [
   },
 ];
 
-import ReleaseConfirmationModal from "./ReleasedConfirmationModal";
+import ReleaseConfirmationModal from "./components/ReleasedConfirmationModal";
 const VolunteerTable = () => {
   const [selectedVolunteers, setSelectedVolunteers] = useState([]);
   const [releaseOpen, setReleaseOpen] = useState(false);

@@ -1,5 +1,4 @@
-import VolunteerTableRow from "../../../../../../../component/Manager/EventDetails/volunteers/VolunteerTableRow";
-
+import VolunteerTableRow from "./component/TableRow/VolunteerTableRow";
 const volunteers = [
 
     {

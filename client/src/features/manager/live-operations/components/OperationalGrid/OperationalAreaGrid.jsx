@@ -1,7 +1,7 @@
-import OperationalAreaCard from "./OperationalAreaCard";
+import OperationalAreaCard from "./components/OperationalAreaCard/OperationalAreaCard";
 import { useState } from "react";
 
-import OperationalAreaDrawer from "./OperationalAreaDrawer/OperationalAreaDrawer";
+import OperationalAreaDrawer from "./components/OperationalAreaDrawer/OperationalAreaDrawer";
 const operationalAreas = [
   {
     id: 1,

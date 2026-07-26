@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import OrganizationVerificationGuard from "../verification/OrganizationVerificationGuard";
 import { toast } from "react-toastify";
 import { supabase } from "../../../utils/supabase";
-import VolunteerPositionsStep from "../../../features/organization/components/event-create/components/PositionStep/VolunteerPositionStep";
+import VolunteerPositionsStep from "./components/PositionStep/VolunteerPositionStep";
 export default function CreateEventPage() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);

@@ -2,7 +2,7 @@ import {
     FaEllipsisVertical
 } from "react-icons/fa6";
 
-import VolunteerStatusBadge from "./VolunteerStatusBadge";
+import VolunteerStatusBadge from "../../../../../../../common/StatusBadge/VolunteerStatusBadge";
 
 const VolunteerTableRow = ({
     volunteer

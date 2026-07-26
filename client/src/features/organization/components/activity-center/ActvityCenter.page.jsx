@@ -10,8 +10,8 @@ import { FaRegClock } from "react-icons/fa";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { LuChartColumnIncreasing } from "react-icons/lu";
 import { BsChatLeft } from "react-icons/bs";
-import SendMessageModal from "../../../../features/organization/components/activity-center/components/Message/MessageModal";
-export default function ActivityCenter() {
+import SendMessageModal from "./components/Message/MessageModal";
+export default function ActivityCenterPage() {
   const [activeTab, setActiveTab] = useState("completed");
 
   const completedEvents = [

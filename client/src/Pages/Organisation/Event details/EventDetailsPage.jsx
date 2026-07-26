@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../../utils/supabase";
 import ManagerAssignmentCard from "../../../component/Organisation/Event details/Action Modal/ManagerAssignmentCard";
 import AssignManagerModal from "../../../component/Organisation/Event details/Action Modal/AssignManagerModal";
-import managers from "../../../component/Organisation/Event details/Data/managerData";
+import managers from "../../../features/organization/components/event-details/data/managerData";
 export default function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);

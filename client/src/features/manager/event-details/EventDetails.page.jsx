@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 
-import Header from "./components/Header/Header";
+import Header from "./components/Header/Header"
 import EventTabs from "./components/EventTabs/EventTabs";
 import OverviewTab from "./components/OverviewTab/Overviewtab";
 import VolunteerTab from "./components/VolunteerTab/VolunteerTab";
 import AttendanceTab from "./components/AttendanceTab/AttendanceTab";
 import TimelineTab from "./components/TimelineTab/TimelineTab";
-import TasksTab from "./components/TasksTab/TasksTab";
+import TasksTab from "./components/TasksTab/TasksTab"
 
 const EventDetailsPage = () => {
 

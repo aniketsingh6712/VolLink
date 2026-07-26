@@ -1,4 +1,4 @@
-import StatusBadge from "./components/AttendanceStatusBadge";
+import StatusBadge from "./components/AttendanceStatusBadge"
 
 const AttendanceRow = ({
     volunteer

@@ -8,7 +8,7 @@ import {
     FiXCircle,
 } from "react-icons/fi";
 
-export default function Header({
+export default function EventHeader({
 
     event,
 

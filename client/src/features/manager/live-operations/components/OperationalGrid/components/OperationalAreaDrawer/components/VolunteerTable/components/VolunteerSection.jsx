@@ -1,4 +1,4 @@
-import VolunteerRow from "./VolunteerRow";
+import VolunteerRow from "../../../../../../../../../../component/Manager/LiveOperations/OperationalAreaDrawer/VolunteerRow";
 
 const VolunteerSection = ({
   title,

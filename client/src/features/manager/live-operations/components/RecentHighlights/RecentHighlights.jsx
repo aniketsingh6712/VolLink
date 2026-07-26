@@ -1,4 +1,3 @@
-import ActivityItem from "./components/ActiveItem";
 
 const activities = [
   {
@@ -30,7 +29,7 @@ const activities = [
     time: "10:58 AM",
   },
 ];
-
+import ActivityItem from "./components/ActivityItem";
 const RecentHighlights = () => {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm">

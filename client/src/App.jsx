@@ -1,39 +1,41 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "./Pages/Landing Page/LandingPage";
-import SignupForm from "./Pages/Sign in/SigninPage";
-import Navbar from "./component/Main/NavBar";
-import LoginPage from "./Pages/Login/LoginPage";
-
-import MyEvents from "./Pages/Volunteer Event/VolunteerEventPage";
-import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage";
-import OrganizationDashboard from "./Pages/Organisation/Dashboard/Dashboard";
-import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
-import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
-import PreviousEventsPage from "./Pages/Organisation/Previous Event/PreviousEventPage";
-import PreviousEventDetails from "./Pages/Organisation/Previous Event/PreviousEventDetails";
 import { ToastContainer } from 'react-toastify';
-import OrganizationSetup from "./Pages/Organisation/Dashboard/OrganisationSetup";
-import OrganizationProfile from "./Pages/Organisation/Dashboard/OrganizationProfile";
-import EditOrganizationApplication from "./Pages/Organisation/Dashboard/OrganisationApplicationEditForm";
-import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/ActivityCenter";
-import Tracker from "./Pages/Organisation/Tracking/Tracker";
-import VolunteerInvitations from "./Pages/Volunteer Invites/VolunteerInvitations";
-import EventStatus from "./Pages/Events Status/EventStatus";
-import VolunteerHome from "./Pages/Volunteers/dashboard/volunteerHome.page";
-import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
-import ManagerMyEvents from "./Pages/Manager/ManagerMyEvent";
-import ManagerEventDetails from "./Pages/Manager/ManagerEventDetails";
-import ManagerVolunteers from "./Pages/Manager/Manager_Volunteer";
-import ManagerLiveOperations from "./Pages/Manager/ManagerLiveOperations";
-import ManagerCommunicationPage from "./Pages/Manager/ManagerCommunicationPage";
-import VolunteerEventsPage from "./Pages/Volunteer Dashboard/VolunteerEventsPage";
-import StaffManagementPage from "./Pages/Organisation/Staff management/StaffManagementPage";
-import AssignedEventApplications from "./Pages/Manager/AssignedEventApplications";
-import VolunteerDashboard from "./Pages/Volunteers/dashboard/volunteerHome.page";
+// import LandingPage from "./Pages/Landing Page/LandingPage";
+// import SignupForm from "./Pages/Sign in/SigninPage";
+// import Navbar from "./component/Main/NavBar";
+// import LoginPage from "./Pages/Login/LoginPage";
+
+// import MyEvents from "./Pages/Volunteer Event/VolunteerEventPage";
+// import VolunteerInvitesPage from "./Pages/Volunteer Invites/VolunteerInvitesPage";
+// import OrganizationDashboard from "./Pages/Organisation/Dashboard/Dashboard";
+// import EventDetails from "./Pages/Organisation/Event details/EventDetailsPage";
+// import CreateEvent from "./Pages/Organisation/Create Event/CreateEventPage";
+// import PreviousEventsPage from "./Pages/Organisation/Previous Event/PreviousEventPage";
+// import PreviousEventDetails from "./Pages/Organisation/Previous Event/PreviousEventDetails";
+
+// import OrganizationSetup from "./Pages/Organisation/Dashboard/OrganisationSetup";
+// import OrganizationProfile from "./Pages/Organisation/Dashboard/OrganizationProfile";
+// import EditOrganizationApplication from "./Pages/Organisation/Dashboard/OrganisationApplicationEditForm";
+// import ActivityCenter from "./Pages/Organisation/Dashboard/Activity Centered/ActivityCenter";
+// import Tracker from "./Pages/Organisation/Tracking/Tracker";
+// import VolunteerInvitations from "./Pages/Volunteer Invites/VolunteerInvitations";
+// import EventStatus from "./Pages/Events Status/EventStatus";
+// import VolunteerHome from "./Pages/Volunteers/dashboard/volunteerHome.page";
+// import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
+// import ManagerMyEvents from "./Pages/Manager/ManagerMyEvent";
+// import ManagerEventDetails from "./Pages/Manager/ManagerEventDetails";
+// import ManagerVolunteers from "./Pages/Manager/Manager_Volunteer";
+// import ManagerLiveOperations from "./Pages/Manager/ManagerLiveOperations";
+// import ManagerCommunicationPage from "./Pages/Manager/ManagerCommunicationPage";
+// import VolunteerEventsPage from "./Pages/Volunteer Dashboard/VolunteerEventsPage";
+// import StaffManagementPage from "./Pages/Organisation/Staff management/StaffManagementPage";
+// import AssignedEventApplications from "./Pages/Manager/AssignedEventApplications";
+// import VolunteerDashboard from "./Pages/Volunteers/dashboard/volunteerHome.page";
+import AppRoutes from "./app/AppRoutes";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element=
           {
@@ -145,7 +147,9 @@ function App() {
         <Route path="/organization/manager/liveoperations" element={<><Navbar /><ManagerLiveOperations /></>} />
         <Route path="/organization/manager/announcement" element={<><Navbar /><ManagerCommunicationPage /></>} />
         <Route path="/organization/manager/eventapplication" element={<><Navbar /><AssignedEventApplications /></>} />
-      </Routes>
+      </Routes> */}
+      <AppRoutes/>
+      
       <ToastContainer
         position="top-right"
         autoClose={3000}

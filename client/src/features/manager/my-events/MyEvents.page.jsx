@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import EventFilter from "../../component/Manager/MyEvents/EventFilter";
-import { myEvents } from "../../component/Manager/MyEvents/myevents";
-import EventCard from "../../component/Manager/MyEvents/EventsCard";
-import EmptyEvents from "../../component/Manager/MyEvents/EmptyEvent";
+import EventFilter from "./components/Filters/EventFilter";
+
+import { myEvents } from "./data/myevents";
+import EventCard from "./components/EventCard/EventsCard";
+import EmptyEvents from "./components/EmptyEvents/EmptyEvent";
 const MyEventsPage = () => {
     const [search, setSearch] = useState("");
     const [status, setStatus] = useState("All");

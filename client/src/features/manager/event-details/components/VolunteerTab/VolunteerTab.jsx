@@ -1,5 +1,5 @@
-import VolunteerToolbar from "./volunteers/VolunteerToolbar";
-import VolunteerTable from "./volunteers/VolunteerTable";
+import VolunteerToolbar from "./Components/Toolbar/VolunteerToolbar";
+import VolunteerTable from "./Components/Table/VolunteerTable";
 
 const VolunteerTab = () => {
 

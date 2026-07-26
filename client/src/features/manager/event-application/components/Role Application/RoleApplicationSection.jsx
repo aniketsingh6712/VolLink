@@ -8,9 +8,9 @@ import {
     FaEye,
 } from "react-icons/fa";
 
-import VolunteerProfileDrawer from "./Modals/VolunteerProfileDrawer";
-import ApproveVolunteerModal from "./Modals/ApproveVolunteerModal";
-import RejectVolunteerModal from "./Modals/RejectVolunteerModal";
+import VolunteerProfileDrawer from "./components/Modals/VolunteerProfileDrawer";
+import ApproveVolunteerModal from "./components/Modals/ApproveVolunteerModal";
+import RejectVolunteerModal from "./components/Modals/RejectVolunteerModal";
 
 export default function RoleApplicationSection({
 

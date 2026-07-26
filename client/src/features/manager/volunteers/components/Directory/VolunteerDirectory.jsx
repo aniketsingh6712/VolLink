@@ -35,7 +35,7 @@ const volunteers = [
     avatar: "https://i.pravatar.cc/150?img=3",
   },
 ];
-import VolunteerCard from "./VolunteerCard";
+import VolunteerCard from "./components/VolunteerCard/VolunteerCard";
 import { useState } from "react";
 import ProfileDrawer from "./components/ProfileDrawer/ProfileDrawer";
 import ChangeRoleModal from "./components/ChangeRoleModal/changeRoleModal";

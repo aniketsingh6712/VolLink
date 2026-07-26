@@ -1,9 +1,9 @@
-import ReportHeader from "../../component/Manager/LiveOperations/ReportHeader";
-import AnalyticsCards from "../../component/Manager/LiveOperations/AnalyticsCards";
-import OperationalAreaGrid from "../../component/Manager/LiveOperations/OperationalAreaGrid";
-import AvailableVolunteerSidebar from "../../component/Manager/LiveOperations/AvailableVolunteerSidebar/AvailableVolunteerSidebar";
-import RecentHighlights from "../../component/Manager/LiveOperations/RecentHighlights.jsx/RecentHighlights";
-import EventOverview from "../../component/Manager/LiveOperations/EventOverview/EventOverview";
+import ReportHeader from "./components/ReportHeader/ReportHeader";
+import AnalyticsCards from "./components/AnalyticsCards/AnalyticsCards";
+import OperationalAreaGrid from "./components/OperationalGrid/OperationalAreaGrid";
+import AvailableVolunteerSidebar from "./components/AvailableVolunteer/AvailableVolunteerSideBar";
+import RecentHighlights from "./components/RecentHighlights/RecentHighlights";
+import EventOverview from "./components/EventOverview/EventOverview";
 const LiveOperationsPage = () => {
   return (
     <div className="min-h-screen bg-slate-50">

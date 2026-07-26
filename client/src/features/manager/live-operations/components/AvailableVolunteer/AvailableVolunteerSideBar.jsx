@@ -1,6 +1,6 @@
-import AvailableVolunteerHeader from "./AvailableVolunteerHeader";
-import AvailableVolunteerList from "./AvailableVolunteerList";
-import AssignToAreaModal from "./AssignToAreaModal";
+import AvailableVolunteerHeader from "./components/VolunteerHeader/AvailableVolunteerHeader";
+import AvailableVolunteerList from "./components/VolunteerList/AvailableVolunteerList";
+import AssignToAreaModal from "./components/AssignArea/AssignToAreaModal";
 const volunteers = [
   {
     id: 1,

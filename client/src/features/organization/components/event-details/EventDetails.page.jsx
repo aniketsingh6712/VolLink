@@ -9,9 +9,9 @@ import { Section } from "../../../component/Organisation/Event details/Section";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "../../../utils/supabase";
-import ManagerAssignmentCard from "../../../component/Organisation/Event details/Action Modal/ManagerAssignmentCard";
-import AssignManagerModal from "../../../component/Organisation/Event details/Action Modal/AssignManagerModal";
-import managers from "../../../component/Organisation/Event details/Data/managerData";
+import ManagerAssignmentCard from "./components/Manager/ManagerAssignmentCard"
+import AssignManagerModal from "./components/Manager/AssignmentModal";
+import managers from "./data/managerData";
 import EventDetailsHeader from "./components/Header/EventDetailsHeader";
 import BackButton from "./components/Header/BackButton";
 import EventOverviewSection from "./components/EventOverview/EventOverviewSection";

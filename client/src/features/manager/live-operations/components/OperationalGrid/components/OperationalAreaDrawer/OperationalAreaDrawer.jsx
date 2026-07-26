@@ -1,10 +1,9 @@
 import { FaTimes } from "react-icons/fa";
 
 import AreaSummaryCard from "./components/AreaSummaryCard/AreaSummaryCard";
-import VolunteerTable from "../../../../../../../component/Manager/LiveOperations/OperationalAreaDrawer/VolunteerTable";
-
-import DeploymentHistory from "../../../../../../../component/Manager/LiveOperations/OperationalAreaDrawer/DeploymentHistory";
-import ActiveDeployments from "../../../../../../../component/Manager/LiveOperations/OperationalAreaDrawer/ActiveDeployments";
+import VolunteerTable from "./components/VolunteerTable/VolunteerTable";
+import DeploymentHistory from "./components/DeploymentHistory/DeploymentHistory";
+import ActiveDeployments from "./components/ActiveDeployment/ActiveDeployments";
 const OperationalAreaDrawer = ({
   open,
   area,

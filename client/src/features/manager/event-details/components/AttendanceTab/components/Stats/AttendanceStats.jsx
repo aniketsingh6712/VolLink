@@ -37,7 +37,7 @@ const cards=[
 
 ];
 
-const Stats=()=>{
+const AttendanceStats=()=>{
 
     return(
 
@@ -98,4 +98,4 @@ const Stats=()=>{
 
 }
 
-export default Stats;
+export default AttendanceStats;

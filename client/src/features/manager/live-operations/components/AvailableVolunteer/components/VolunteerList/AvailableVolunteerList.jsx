@@ -1,4 +1,4 @@
-import AvailableVolunteerCard from "./AvailableVolunteerCard";
+import AvailableVolunteerCard from "./components/VolunteerCard/AvailableVolunteerCard";
 
 const AvailableVolunteerList = ({
   volunteers,

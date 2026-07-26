@@ -1,4 +1,4 @@
-import Stats from "./components/Stats/AttendanceStats";
+import AttendanceStats from "./components/Stats/AttendanceStats"
 import AttendanceToolbar from "./components/Toolbar/AttendanceToolbar";
 import AttendanceTable from "./components/Table/Attendancetable";
 

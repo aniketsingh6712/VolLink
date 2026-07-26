@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import Header from "./components/Header/EventHeader";
+import EventHeader from "./components/Header/EventHeader";
 import SearchToolbar from "./components/Search/SearchToolbar";
-import RoleApplicationSection from "./components/Role Section/RoleApplicationSection";
+import RoleApplicationSection from "./components/Role Application/RoleApplicationSection";
 
 import { roleApplications } from "../Data/managerDummyData";
 
