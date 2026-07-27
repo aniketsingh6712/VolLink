@@ -1,9 +1,9 @@
 // pages/MyEvents.jsx
 
 import { useState } from "react";
-import StatusCard from "../../component/Volunteer Event Page/EventCard";
-import EventRowCard from "../../component/Volunteer Event Page/EventRowCard";
-import EventTabs from "../../component/Volunteer Event Page/EventTabs";
+import StatusCard from "./components/Stats/StatusCard";
+import EventCard from "./components/EventRow/EventCard";
+import EventTabs from "./components/EventTabs/EventTabs";
 import StatsSection from "./components/Stats/StatsSection";
 export default function MyEvents() {
   const [active, setActive] = useState("All");
@@ -72,7 +72,7 @@ export default function MyEvents() {
         {/* List */}
         <div className="mt-6 space-y-4">
           {filtered.map((event, index) => (
-            <EventRowCard key={index} event={event} />
+            <EventCard key={index} event={event} />
           ))}
         </div>
 

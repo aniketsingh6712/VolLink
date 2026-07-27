@@ -1,7 +1,7 @@
 // components/modals/MessageModal.jsx
 
 import { useState } from "react";
-import Modal from "../ui/Modal";
+import Modal from "../../../../common/Modal/Modal";
 
 export default function MessageModal({ isOpen, onClose, event }) {
   const [message, setMessage] = useState("");

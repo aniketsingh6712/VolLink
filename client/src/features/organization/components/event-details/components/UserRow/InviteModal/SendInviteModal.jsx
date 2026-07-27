@@ -1,4 +1,4 @@
-import Modal from "../../../ui/Modal";
+import Modal from "../../../../../../common/Modal/Modal";
 import { useState } from "react";
 import { LuSend } from "react-icons/lu";
 export default function InviteModal({ isOpen, onClose, user, onSend }) {

@@ -2,9 +2,9 @@
 import { PiClockCounterClockwise } from "react-icons/pi";
 import { LuEye } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../../utils/supabase";
+import { supabase } from "../../../../utils/supabase";
 import { useEffect, useState } from "react";
-import OrganizationVerificationGuard from "../verification/OrganizationVerificationGuard";
+// import OrganizationVerificationGuard from "../verification/OrganizationVerificationGuard";
 import DashboardHeader from "./components/Header/DashboardHeader";
 import StatsSection from "./components/Stats/StatsSection";
 import ActiveEventSection from "./components/ActiveEvents/ActiveEventSection";
@@ -160,7 +160,7 @@ export default function OrganizationDashboard() {
   return (
 
     <div className="bg-[#F9FAFB] min-h-screen px-6 md:px-12 py-8 max-w-7xl mx-auto">
-      <OrganizationVerificationGuard>
+      {/* <OrganizationVerificationGuard> */}
         {/* HEADER */}
       <DashboardHeader/>
 
@@ -172,7 +172,7 @@ export default function OrganizationDashboard() {
 
         {/* HISTORY */}
         <EventHistorySection events={historyEvents}/>
-      </OrganizationVerificationGuard>
+      {/* </OrganizationVerificationGuard> */}
     </div>
 
   );

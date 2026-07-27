@@ -1,12 +1,13 @@
 import { useState } from "react";
-import EventDetailsModal from "../../../component/Volunteer/Home/EventDetailsModal";
+import EventDetailsModal from "./components/Modals/EventDetailsModal";
 import CurrentEventCard from "./components/CurrentEvent/currentEventCard";
 import UpcomingEventCard from "./components/UpcomingEvents/upcomingEventCard";
-import ScanPassModal from "../../../component/Volunteer/Home/scanPassModel";
-import BoardingPass from "../../../component/Event Status/EventPass";
-import HeroSection from "./components/HeroSection/HeroSection";
-import EventUpdates from "../../../component/Volunteer/Home/EventUpdates";
+import ScanPassModal from "./components/Modals/scanPassModel";
+import BoardingPass from "../../common/EventPass/BoadingPass";
+import HeroSection from "./components/HeroSection/HeroSection"
+import EventUpdates from "./components/Updates/EventUpdates";
 import EntryToolsSection from "./components/EntryTools/EntryToolsSection";
+import UpcomingEventsSection from "./components/UpcomingEvents/UpcomingEventsSection";
 export default function Dashboard() {
     const [scannerOpen, setScannerOpen] = useState(false);
     const [modal, setModal] = useState(null);
@@ -208,7 +209,7 @@ export default function Dashboard() {
     return (
         <div className="bg-[#F8FAFC]">
             <div className="max-w-7xl mx-auto px-6 py-10">
-                <VolunteerHeroSection user={volunteer} />
+                <HeroSection user={volunteer} />
 
                 <CurrentEventCard
                     event={currentEvent}

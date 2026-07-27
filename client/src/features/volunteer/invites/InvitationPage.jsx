@@ -1,8 +1,8 @@
 import { useState } from "react";
-import InvitationStats from "../../component/Volunteer Invites/InvitationStats";
-import InvitationTabs from "../../component/Volunteer Invites/InvitationTabs";
-import InvitationSearch from "../../component/Volunteer Invites/InvitationSearch";
-import InvitationGrid from "../../component/Volunteer Invites/InvitationGrid";
+import InvitationStats from "./components/Stats/InvitationStats";
+import InvitationTabs from "../common/Tabs/InvitationTabs";
+import InvitationSearch from "../common/Search/InvitationSearch";
+import InvitationGrid from "./components/InvitationGrid/InvitationGrid";
 import { FiClock, FiCheckCircle, FiXCircle } from "react-icons/fi";
 export default function InvitationPage() {
   const [tab, setTab] = useState("pending");

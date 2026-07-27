@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EventInfoCard({ event }) {
+export function EventInfoCard({ event }) {
     const percent =
         event.people_needed > 0
             ? Math.min(
@@ -63,7 +63,7 @@ function EventInfoCard({ event }) {
     )
 }
 
-export default EventInfoCard;
+
 
 export function EventTitle({ event }) {
     return (<>

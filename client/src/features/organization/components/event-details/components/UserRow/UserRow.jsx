@@ -3,12 +3,12 @@ import { FiPhone } from "react-icons/fi";
 import { MdCalendarToday } from "react-icons/md";
 import { FaCheck, FaTimes, FaEye } from "react-icons/fa";
 
-import { IconBtn } from "./IconBtn";
+import { IconBtn } from "../../../../common/Icon Btn/IconBtn";
 import { useState } from "react";
-import VolunteerProfileModal from "./Volunteer Profile/VolunteerProfileModal";
-import ApproveModal from "./Action Modal/ApproveModal";
-import RejectModal from "./Action Modal/RejectModal";
-import InviteModal from "./Action Modal/SendInviteModal";
+import ProfileModal from "./ProfileModal/ProfileModal";
+import ApproveModal from "./ApproveModal/ApproveModal";
+import RejectModal from "./RejectModal/RejectModal";
+import InviteModal from "./InviteModal/SendInviteModal"
 
 import { LuSend } from "react-icons/lu";
 export function UserRow({ user, type }) {
@@ -106,7 +106,7 @@ export function UserRow({ user, type }) {
       {/* 🔥 MODALS */}
 
       {/* PROFILE */}
-      <VolunteerProfileModal
+      <ProfileModal
         isOpen={openProfile}
         onClose={() => setOpenProfile(false)}
         user={selectedUser}

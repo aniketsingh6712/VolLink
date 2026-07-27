@@ -1,4 +1,4 @@
-import Modal from "../../../ui/Modal";
+import Modal from "../../../../../../common/Modal/Modal";
 import { FaTimes } from "react-icons/fa";
 
 import { useState } from "react";

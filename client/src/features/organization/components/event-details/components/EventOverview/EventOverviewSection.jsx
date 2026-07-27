@@ -1,8 +1,9 @@
 import React from 'react'
 import EventImageCard from './components/EventImageCard'
-import EventInfoCard, { EventTitle ,manager,managerHandler} from './components/EventInfoCard'
+import {EventInfoCard,EventTitle} from "./components/EventInfoCard";
+import ManagerAssignmentCard from '../Manager/ManagerAssignmentCard';
 
-function EventOverviewSection({ event }) {
+function EventOverviewSection({ event , manager}) {
     return (
         <>
             <div className="px-6 py-6 border-b">
@@ -60,4 +61,4 @@ function EventOverviewSection({ event }) {
     )
 }
 
-export default EventOverviewSection
+export default EventOverviewSection;

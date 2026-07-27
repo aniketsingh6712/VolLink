@@ -3,13 +3,13 @@ import React, { useMemo, useState } from "react";
 import StatusCard from "./components/StatusCard/StatusCard";
 import EventCard from "./components/EventCard/EventCard";
 
-import InvitationTabs from "../../features/volunteer/invites/components/Tabs/InvitationTabs";
-import InvitationSearch from "../../features/volunteer/invites/components/Search/InvitationSearch";
+import InvitationTabs from "../common/Tabs/InvitationTabs";
+import InvitationSearch from "../common/Search/InvitationSearch";
 
 import { FiClock, FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { BsCheck2All } from "react-icons/bs";
-import BoardingPass from "./components/EventPass/BoadingPass";
-function EventStatus() {
+import BoardingPass from "../../common/EventPass/BoadingPass";
+function EventStatusPage() {
   const [tab, setTab] = useState("awaiting");
   const [search, setSearch] = useState("");
   const [selectedPass, setSelectedPass] = useState(null); // For boarding pass modal
@@ -198,4 +198,4 @@ function EventStatus() {
   );
 }
 
-export default EventStatus;
+export default EventStatusPage;

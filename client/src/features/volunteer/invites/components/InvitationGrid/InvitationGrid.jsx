@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import InvitationCard from "./InvitationCard";
-import EmptyInvitationState from "./EmptyInvitationState";
-import ConfirmDialog from "./ConfimDialog";
+import InvitationCard from "./components/InvitationCard";
+import EmptyInvitationState from "./components/EmptyInvitationState";
+import ConfirmDialog from "./components/ConfimDialog";
 
 export default function InvitationGrid({
   tab,

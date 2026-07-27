@@ -33,4 +33,4 @@ function EventImageCard({ event }) {
     )
 }
 
-export default EventImageCard
+export default EventImageCard;

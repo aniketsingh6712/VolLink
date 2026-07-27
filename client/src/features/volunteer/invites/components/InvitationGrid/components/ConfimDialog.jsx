@@ -1,7 +1,7 @@
 // // ConfirmDialog.jsx
 import { useState } from "react";
 
-import Modal from "../ui/Modal";
+import Modal from "../../../../../common/Modal/Modal";
 
 import { FiCheckCircle } from "react-icons/fi";
 

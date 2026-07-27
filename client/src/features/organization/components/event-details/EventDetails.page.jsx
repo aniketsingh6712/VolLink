@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
 
-import { UserRow } from "../../../component/Organisation/Event details/UserRow";
-import { Section } from "../../../component/Organisation/Event details/Section";
+import { UserRow } from "./components/UserRow/UserRow";
+import { Section } from "./components/Shared/Section";
 
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { supabase } from "../../../utils/supabase";
+import { supabase } from "../../../../utils/supabase";
 import ManagerAssignmentCard from "./components/Manager/ManagerAssignmentCard"
 import AssignManagerModal from "./components/Manager/AssignmentModal";
 import managers from "./data/managerData";
@@ -18,7 +18,7 @@ import EventOverviewSection from "./components/EventOverview/EventOverviewSectio
 import VolunteerSearchBar from "./components/VolunteerSearch/VolunteerSearchBar";
 import EmptyState from "./components/Shared/EmptyState";
 import PendingApplicationSection from "./components/Volunteers/PendingApplicationSection";
-export default function EventDetails() {
+export default function EventDetailsPage() {
     const { id } = useParams();
     const [event, setEvent] = useState(null);
     const [pending, setPending] = useState([]);

@@ -1,4 +1,4 @@
-import Modal from "../../../../../../common/Modal"
+import Modal from "../../../../../../common/Modal/Modal";
 import { FaTimes } from "react-icons/fa";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { LuBook } from "react-icons/lu";

@@ -3,7 +3,7 @@ import { FiSearch, FiFilter } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import CompletedEventCard from "../../../../component/Organisation/ActivityCenter/CompletedEventCard";
+import CompletedEventCard from "./components/CompleteEvent/CompletedEventCard"
 import { LuSend } from "react-icons/lu";
 import { SiTicktick } from "react-icons/si";
 import { FaRegClock } from "react-icons/fa";

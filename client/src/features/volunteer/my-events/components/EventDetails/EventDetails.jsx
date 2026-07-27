@@ -1,5 +1,5 @@
 
-import Modal from "../ui/Modal";
+import Modal from "../../../../common/Modal/Modal";
 import { LuMapPin } from "react-icons/lu";
 import { MdOutlineCalendarToday } from "react-icons/md";
 

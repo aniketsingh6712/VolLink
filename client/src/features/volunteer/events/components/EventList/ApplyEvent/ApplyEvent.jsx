@@ -3,7 +3,7 @@
 // components/modals/ApplyModal.jsx
 
 import { useState } from "react";
-import Modal from "../ui/Modal";
+import Modal from "../../../../../common/Modal/Modal";
 import { IoCheckmark } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
 import EventOverviewStep from "./Component/EventOverviewStep";

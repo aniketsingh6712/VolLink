@@ -1,5 +1,6 @@
 import React from 'react'
 import EmptyState from '../Shared/EmptyState'
+import { Section } from '../Shared/Section'
 function PendingApplicationSection({pending}) {
     return (
         <>

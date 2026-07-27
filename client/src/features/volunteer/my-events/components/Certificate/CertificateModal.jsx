@@ -1,6 +1,6 @@
 // components/modals/CertificateModal.jsx
 
-import Modal from "../ui/Modal";
+import Modal from "../../../../common/Modal/Modal";
 
 export default function CertificateModal({ isOpen, onClose, event }) {
   return (

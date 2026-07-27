@@ -2,7 +2,7 @@
 import { FiSend } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
 import { useState } from "react";
-import SendInviteModal from "./components/SendInvite/SendInviteModal";
+import SendInviteModal from "./components/SendInvite/SendInviteModal"
 import SendMessageModal from "../Message/MessageModal";
 import ViewAllVolunteer from "./components/ViewVolunteer/ViewAllVolunteer";
 export default function CompletedEvent({ event, availableEvents = [] }) {
