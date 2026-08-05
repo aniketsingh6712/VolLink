@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-import StaffStats from "../../../features/organization/components/staff-management/staff-stats/StaffStats";
-import StaffTabs from "../../../features/organization/components/staff-management/staff-tabs/StaffTabs";
-import ActiveStaffTable from "../../../component/Organisation/Staff Management/ActiveStaffTable";
+import StaffStats from "./staff-stats/StaffStats";
+import StaffTabs from "./staff-tabs/StaffTabs";
+import ActiveStaffTable from "./active-staff-table/ActiveStaffTable";
 
 import staffData from "./data/StaffData";
-import StaffProfileDrawer from "../../../features/organization/components/staff-management/staff-profile-drawer/StaffProfileDrawer";
-import InviteStaffModal from "../../../features/organization/components/staff-management/invite-staff-modal/InviteStaffModel";
+import StaffProfileDrawer from "./staff-profile-drawer/StaffProfileDrawer";
+import InviteStaffModal from "./invite-staff-modal/InviteStaffModel";
 
-import PendingApprovalTable from "../../../features/organization/components/staff-management/pending-approval-table/PendingApprovalTable";
-import PendingInvitationTable from "../../../features/organization/components/staff-management/pending-invitation-table/PendingInvitationTable";
-import pendingApprovalData from "../../../component/Organisation/Staff Management/data/pendingApprovalData";
-import pendingInvitationData from "../../../component/Organisation/Staff Management/data/pendingInvitationData";
-import PendingCandidateDrawer from "../../../features/organization/components/staff-management/pending-candidate-drawer/PendingCandidateDrawer";
-import AssignEventModal from "../../../features/organization/components/staff-management/assign-event-modal/AssignEventModal";
-import eventList from "../../../component/Organisation/Staff Management/data/eventList";
+import PendingApprovalTable from "./pending-approval-table/PendingApprovalTable";
+import PendingInvitationTable from "./pending-invitation-table/PendingInvitationTable";
+import pendingApprovalData from "./data/pendingApprovalData";
+import pendingInvitationData from "./data/pendingInvitationData";
+import PendingCandidateDrawer from "./pending-candidate-drawer/PendingCandidateDrawer";
+import AssignEventModal from "./assign-event-modal/AssignEventModal";
+import eventList from "./data/eventList";
 const StaffManagementPage = () => {
 
     const [activeTab, setActiveTab] = useState("active");

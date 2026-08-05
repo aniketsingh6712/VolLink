@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 
-import TrackerStats from "../../../features/organization/components/tracker/stats/Stats";
-import TrackerTabs from "../../../features/organization/components/tracker/tabs/Tabs";
-import VolunteerTrackerTable from "../../../features/organization/components/tracker/tracker-table/TrackTable";
-import VolunteerDetailsModal from "../../../features/organization/components/tracker/details-modal/DetailsModal";
+import TrackerStats from "./stats/Stats";
+import TrackerTabs from "./tabs/Tabs";
+import VolunteerTrackerTable from "./tracker-table/TrackTable";
+import VolunteerDetailsModal from "./details-modal/DetailsModal";
 
-export default function Tracker() {
+export default function TrackerPage() {
   const [tab, setTab] = useState("active");
 
   const [selected, setSelected] = useState(null);
